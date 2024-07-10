@@ -21,9 +21,15 @@ advertisements/application_windows/migrations
 
 
 # Database
+data/db.sqlite3
+
+
+# Media
 advertisements/media/advertisements/image
 advertisements/media/advertisements/files
-data/db.sqlite3
+
+advertisements/media/application_windows
+advertisements/media/application_android
 
 
 # Django Project Keys
