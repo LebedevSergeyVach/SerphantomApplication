@@ -1,0 +1,37 @@
+# System folders
+*.idea/
+.idea/
+1.idea/
+*.__pycache__/
+__pycache__/
+*/__pycache__
+venv/
+*.DS_Store
+
+
+# PyCache
+*/__pycache__/*
+advertisements/__pycache__/
+advertisements/advertisements/__pycache__/
+advertisements/application_windows/__pycache__/
+
+
+# Migrate
+advertisements/application_windows/migrations
+
+
+# Database
+advertisements/media/advertisements/image
+advertisements/media/advertisements/files
+data/db.sqlite3
+
+
+# Django Project Keys
+advertisements/advertisements/secrets.py
+certificates/
+certificate.crt
+certificate.key
+.env
+
+
+# Instructions

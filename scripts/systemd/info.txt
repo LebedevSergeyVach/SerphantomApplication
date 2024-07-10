@@ -1,0 +1,67 @@
+""" Command list for the project """
+
+
+* The command to run the site docker build on the server
+  su -c 'sudo docker compose -f "./docker-compose.yml" up'
+  sudo docker compose -f "./docker-compose.yml" up
+
+* The command to start the rebuild of the docker site on the server
+  su -c 'sudo docker compose -f "./docker-compose.yml" build --force-rm --no-cache'
+  sudo docker compose -f "./docker-compose.yml" build --force-rm --no-cache
+
+* Running the project locally
+  poetry run python manage.py runserver
+
+* Launching Django shell
+  python manage.py shell
+
+* Migrations in the Django project
+  python manage.py makemigrations
+  python manage.py migrate
+
+* Create superuser for the project
+  python manage.py createsuperuser
+
+* Create app for the project & start the project
+  django-admin startproject advertisements
+  python manage.py startapp app_advertisements
+
+* Docker clean cache
+  docker builder prune
+  docker image prune -f
+  docker image prune -a -f
+
+  https://dev.to/ajeetraina/how-to-clear-docker-cache-2nnp
+
+Чтобы показать только запущенные контейнеры, используйте данную команду:
+
+docker ps
+Чтобы показать все контейнеры, используйте данную команду:
+
+docker ps -a
+Чтобы показать последний созданный контейнер (включая все состояния), используйте данную команду:
+
+docker ps -l
+Чтобы показать n последних созданных контейнеров (включая все состояния), используйте следующую команду:
+
+docker ps -n=-1
+Чтобы отобразить общие размеры файлов, используйте данную команду:
+
+docker ps -s
+Представленный выше контент взят с docker.com .
+
+В новой версии Docker обновлены команды и добавлены некоторые команды управления:
+
+docker container ls
+Он используется для вывода списка всех запущенных контейнеров.
+
+docker container ls -a
+А потом, если ты захочешь почистить их все,
+
+docker rm $(docker ps -aq)
+Он используется для вывода списка всех созданных контейнеров независимо от их состояния.
+
+И остановить все контейнеры Docker (принудительно)
+
+docker rm -f $(docker ps -a -q)
+Здесь контейнер — это команда управления.
