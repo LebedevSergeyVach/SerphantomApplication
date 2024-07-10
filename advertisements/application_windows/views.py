@@ -4,6 +4,11 @@ from django.shortcuts import render
 class WebViews(object):
     """Web views for the app."""
 
+    def welcome(request):
+        return render(
+            request, 'welcome.html'
+        )
+
     def index_windows(request):
         return render(
             request, 'application_windows/index.html'

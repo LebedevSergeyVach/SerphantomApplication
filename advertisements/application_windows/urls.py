@@ -3,10 +3,10 @@ from .views import WebViews
 
 
 urlpatterns = [
-    path('', WebViews.not_found, name='main-index'),
+    path('', WebViews.welcome, name='welcome'),
 
-    path('Windows', WebViews.index_windows, name='index-windows'),
-    path('Android', WebViews.index_android, name='index-android'),
+    path('windows', WebViews.index_windows, name='index-windows'),
+    path('android', WebViews.index_android, name='index-android'),
 
     path('add-windows-post', WebViews.add_windows_post, name='add-windows-post'),
     path('add-android-post', WebViews.add_android_post, name='add-android-post'),
