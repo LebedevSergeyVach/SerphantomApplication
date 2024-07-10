@@ -8,6 +8,64 @@ Windows application
 {% block active_1 %}active{% endblock %}
 
 {% block content %}
+<div class="bg-black">
+
+
+    <div class="container" style="margin: 50px;">
+      <div class="display-2">
+        <span class="badge bg-primary">В центре внимания</span>
+      </div>
+    </div>
+
+    <div class="container bg-black">
+
+      <div class="row">
+        <form class="row g-3" method="get">
+          <div class="col-auto w-50">
+            <input  name="query"  value="{% if title %}{{ title }}{% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
+          </div>
+          <div class="col-auto">
+              <button type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Найти</button>
+          </div>
+        </form>
+      </div>
+    <div class="bg-black">
+        <div class="bg-black">
+          {% for adv in advertisements %}
+            <div class="card mb-2 bg-black bg-gradient p-3" style="max-width: 1200px; margin-top: 20px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <a href="{{ adv.get_absolute_url }}" class="nav-link">
+                    <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                  </a>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <strong class="badge bg-primary">{{ adv.name }} </strong>
+                    </h4>
+                    <a href="{% url 'welcome' %}" class="nav-link">
+                      <strong class="card-text text-primary">
+                        {{ adv.description }}
+                      </strong>
+                      <h6 class="card-title">
+                        <a href="{% url 'welcome' %}" class="nav-link"><span class="text-primary">Цена: {{ adv.name }} ₽</span></a>
+                      </h6>
+                      <h6>
+                        <span class="text-light">Автор: {{ adv.user }}</span>
+                      </h6>
+                      <p class="card-text"><small class="text-muted">Размещено: {{ adv.created_at }} </small></p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+      <div style="margin: 50px;"></div>
+    </div>
 
 
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

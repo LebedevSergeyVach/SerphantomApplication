@@ -8,6 +8,8 @@ urlpatterns = [
     path('windows', WebViews.index_windows, name='index-windows'),
     path('android', WebViews.index_android, name='index-android'),
 
+    path('application/<int:pk>', WebViews.application_windows, name='application-windows'),
+
     path('add-windows-post', WebViews.add_windows_post, name='add-windows-post'),
     path('add-android-post', WebViews.add_android_post, name='add-android-post'),
 

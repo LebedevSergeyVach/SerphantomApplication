@@ -145,7 +145,7 @@ class WindowsApplication(models.Model):
     def get_absolute_url(self):
         """Get absolute URL for this user from the database"""
         return reverse(
-            'WindowsApplication', kwargs={'pk': self.pk}
+            "application-windows", kwargs={'pk': self.pk}
         )
 
     class Meta:
@@ -288,7 +288,7 @@ class AndroidApplication(models.Model):
     def get_absolute_url(self):
         """Get absolute URL for this user from the database"""
         return reverse(
-            'AndroidApplication', kwargs={'pk': self.pk}
+            'application-android', kwargs={'pk': self.pk}
         )
 
     class Meta:
