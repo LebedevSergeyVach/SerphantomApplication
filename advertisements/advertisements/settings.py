@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_extensions',
-    'application_windows.apps.AppAdvertisementsConfig',
+    'application.apps.AppAdvertisementsConfig',
 ]
 
 MIDDLEWARE = [
