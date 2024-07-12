@@ -21,7 +21,7 @@ Windows application
     <div class="container bg-black">
 
       <div class="row">
-        <form class="row g-3 center" method="get">
+        <form class="row g-4 center" method="get">
           <div class="col-auto w-50">
             <input name="query" value="{% if title %} {{ title }} {% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
           </div>
@@ -36,7 +36,7 @@ Windows application
           {% for adv in advertisements %}
             <div class="card mb-2 bg-black bg-gradient p-3" style="max-width: 1200px; margin-top: 20px;">
               <div class="row g-0">
-                <div class="col-md-4">
+                <div class="col-md-5">
                   <a href="{{ adv.get_absolute_url }}" class="nav-link">
                     <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
                   </a>
@@ -66,6 +66,7 @@ Windows application
                 </div>
               </div>
             </div>
+                    <div style="margin: 50px;"></div>
           {% endfor %}
         </div>
     </div>

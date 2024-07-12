@@ -82,22 +82,22 @@
         <span style="font-weight: bold;">Android</span>
     </a>
   </li>
-    {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
-  <li class="nav-item bg-black">
-    <a class="nav-link {% block active_3 %}{% endblock %}" href="{% url 'add-windows-post' %}">
-        <span style="font-weight: bold;">Add Windows</span>
-    </a>
-  </li>
-    {% else %}
-    {% endif %}
-    {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
-  <li class="nav-item bg-black">
-    <a class="nav-link {% block active_4 %}{% endblock %}" href="{% url 'add-android-post' %}">
-        <span style="font-weight: bold;">Add Android</span>
-    </a>
-  </li>
-    {% else %}
-    {% endif %}
+{#    {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}#}
+{#  <li class="nav-item bg-black">#}
+{#    <a class="nav-link {% block active_3 %}{% endblock %}" href="{% url 'add-windows-post' %}">#}
+{#        <span style="font-weight: bold;">Add Windows</span>#}
+{#    </a>#}
+{#  </li>#}
+{#    {% else %}#}
+{#    {% endif %}#}
+{#    {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}#}
+{#  <li class="nav-item bg-black">#}
+{#    <a class="nav-link {% block active_4 %}{% endblock %}" href="{% url 'add-android-post' %}">#}
+{#        <span style="font-weight: bold;">Add Android</span>#}
+{#    </a>#}
+{#  </li>#}
+{#    {% else %}#}
+{#    {% endif %}#}
 </ul>
 
 
