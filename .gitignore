@@ -13,11 +13,11 @@ venv/
 */__pycache__/*
 advertisements/__pycache__/
 advertisements/advertisements/__pycache__/
-advertisements/application_windows/__pycache__/
+advertisements/application/__pycache__/
 
 
 # Migrate
-advertisements/application_windows/migrations
+advertisements/application/migrations
 
 
 # Database
