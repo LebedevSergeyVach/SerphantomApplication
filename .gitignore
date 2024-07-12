@@ -25,9 +25,6 @@ data/db.sqlite3
 
 
 # Media
-advertisements/media/advertisements/image
-advertisements/media/advertisements/files
-
 advertisements/media/application_windows
 advertisements/media/application_android
 
