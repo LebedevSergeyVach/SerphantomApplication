@@ -69,6 +69,9 @@
   </div>
 </div>
 
+  <li class="bg-black">
+      <span>.</span>
+  </li>
   <li class="nav-item bg-black">
     <a class="nav-link {% block active_1 %}{% endblock %}" aria-current="page" href="{% url 'index-windows' %}">
       <span style="font-weight: bold;">Windows</span>
@@ -101,7 +104,7 @@
 {% block content %}
 {% endblock %}
 
-<footer style="padding: 60px;" class="bg-primary">
+<footer style="padding: 40px;" class="bg-primary">
   <nav class="navbar navbar-expand-sm navbar-dark">
 
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -193,15 +196,15 @@
       aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" href="" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Ссылки</a>
-          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownId">
-            <a class="dropdown-item text-light btn-outline-primary" href="https://t.me/LebedevSergeyVach">Telegram</a>
-            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach">GitHub</a>
-            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach/SerphantomApplication">Repositories</a>
-          </div>
-        </li>
+{#        <li class="nav-item dropdown">#}
+{#          <a class="nav-link dropdown-toggle text-light" href="" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"#}
+{#            aria-expanded="false">Ссылки</a>#}
+{#          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownId">#}
+{#            <a class="dropdown-item text-light btn-outline-primary" href="https://t.me/LebedevSergeyVach">Telegram</a>#}
+{#            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach">GitHub</a>#}
+{#            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach/SerphantomApplication">Repositories</a>#}
+{#          </div>#}
+{#        </li>#}
       </ul>
       <form class="d-flex my-2 my-lg-0" method="get">
         <input class="form-control me-sm-2 bg-dark bg-gradient text-light btn-outline-primary" type="text" placeholder="Search" name="query"  value="{% if title %} {{ title }} {% endif %}">

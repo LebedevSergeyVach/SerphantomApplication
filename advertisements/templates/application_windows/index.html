@@ -9,26 +9,28 @@ Windows application
 
 {% block content %}
 <div class="bg-black">
-
-
-    <div class="container" style="margin: 50px;">
-      <div class="display-2">
-        <span class="badge bg-primary">В центре внимания</span>
-      </div>
+    <div style="margin: 30px;"></div>
+    <div class="container overflow-hidden text-center">
+        <div class="d-grid gap-3 mx-auto">
+              <div class="display-4">
+                <span class="badge bg-primary">Продукция для Windows</span>
+              </div>
+        </div>
     </div>
 
     <div class="container bg-black">
 
       <div class="row">
-        <form class="row g-3" method="get">
+        <form class="row g-3 center" method="get">
           <div class="col-auto w-50">
-            <input  name="query"  value="{% if title %}{{ title }}{% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
+            <input name="query" value="{% if title %} {{ title }} {% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
           </div>
           <div class="col-auto">
               <button type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Найти</button>
           </div>
         </form>
       </div>
+
     <div class="bg-black">
         <div class="bg-black">
           {% for adv in advertisements %}
@@ -39,23 +41,27 @@ Windows application
                     <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
                   </a>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-7">
                   <div class="card-body">
-                    <h4 class="card-title">
+                    <h2 class="card-title">
                       <strong class="badge bg-primary">{{ adv.name }} </strong>
-                    </h4>
-                    <a href="{% url 'welcome' %}" class="nav-link">
-                      <strong class="card-text text-primary">
-                        {{ adv.description }}
-                      </strong>
-                      <h6 class="card-title">
-                        <a href="{% url 'welcome' %}" class="nav-link"><span class="text-primary">Цена: {{ adv.name }} ₽</span></a>
-                      </h6>
-                      <h6>
-                        <span class="text-light">Автор: {{ adv.user }}</span>
-                      </h6>
+                    </h2>
+                        <a href="{{ adv.get_absolute_url }}" class="nav-link">
+                          <h5 class="card-text text-white">
+                            {{ adv.title }}
+                          </h5>
+                        </a>
+                        <a href="{{ adv.get_absolute_url }}" class="nav-link">
+                          <strong class="card-text text-white">
+                            {{ adv.short_description }}
+                          </strong>
+                        </a>
+                      <p></p>
+                      <div class="col-auto">
+                          <a href="{{ adv.get_absolute_url }}" type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Подробнее</a>
+                          <a href="{{ adv.file_main.url }}" type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Скачать</a>
+                      </div>
                       <p class="card-text"><small class="text-muted">Размещено: {{ adv.created_at }} </small></p>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -64,9 +70,9 @@ Windows application
         </div>
     </div>
 
-      <div style="margin: 50px;"></div>
+      <div style="margin: 60px;"></div>
     </div>
-
+</div>
 
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
