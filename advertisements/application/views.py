@@ -6,7 +6,7 @@ from django.db.models import Count
 
 from django.contrib.auth.models import User
 
-from .models import WindowsApplication
+from .models import WindowsApplication, AndroidApplication
 
 
 class WebViews(object):
@@ -48,8 +48,33 @@ class WebViews(object):
         )
 
     def index_android(request):
+        name = request.GET.get('query')
+
+        if name:
+            advertisements = AndroidApplication.objects.filter(
+                name__icontains=name.strip()
+            )
+        else:
+            advertisements = AndroidApplication.objects.all()
+
+        context = {
+            'advertisements': advertisements,
+            'title': name
+        }
+
         return render(
-            request, 'application_android/index.html'
+            request, 'application_android/index.html', context=context
+        )
+
+    def application_android(request, pk):
+        advertisement = AndroidApplication.objects.get(pk=pk)
+
+        context = {
+            'advertisement': advertisement
+        }
+
+        return render(
+            request, 'application_android/application.html', context=context
         )
 
     def add_windows_post(request):
