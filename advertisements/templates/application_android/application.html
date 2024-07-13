@@ -10,125 +10,114 @@
 {% block content %}
 <div class="bg-black">
 
-        <div style="margin: 50px;"></div>
+<div style="margin: 30px;"></div>
     <div class="container overflow-hidden text-center">
         <div class="d-grid gap-3 mx-auto">
               <div class="display-4">
-                <span class="badge bg-primary">Продукция для Windows</span>
+                <span class="badge bg-primary">{{ advertisement.title }}</span>
               </div>
         </div>
     </div>
-            <div style="margin: 45px;"></div>
+            <div style="margin: 10px;"></div>
 
-  <div class="col offset-2">
-    <div class="card mb-2 bg-black bg-gradient" style="max-width: 1200px; margin-top: 20px;">
-      <div class="row g-0">
-        <div class="col-md-5">
-        <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            {% if advertisement.image_application_main %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            {% endif %}
-            {% if advertisement.image_application_2 %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            {% endif %}
-            {% if advertisement.image_application_3 %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            {% endif %}
-            {% if advertisement.image_application_4 %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            {% endif %}
-            {% if advertisement.image_application_5 %}
-                <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            {% endif %}
-          </div>
-          <div class="carousel-inner">
-            {% if advertisement.image_application_main %}
-            <div class="carousel-item active">
-                <a href="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                    <img src="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
-                </a>
+<div class="container bg-black d-flex justify-content-center align-items-center">
+    <div class="card mb-2 bg-black bg-gradient p-3" style="max-width: 1000px; margin-top: 20px;">
+      <div class="row g-2 d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+            <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                {% if advertisement.image_application_main %}
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                {% endif %}
+                {% if advertisement.image_application_2 %}
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                {% endif %}
+                {% if advertisement.image_application_3 %}
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                {% endif %}
+                {% if advertisement.image_application_4 %}
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                {% endif %}
+                {% if advertisement.image_application_5 %}
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                {% endif %}
+              </div>
+              <div class="carousel-inner">
+                {% if advertisement.image_application_main %}
+                <div class="carousel-item active">
+                    <a href="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
+                        <img src="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                    </a>
+                </div>
+                {% endif %}
+                {% if advertisement.image_application_2 %}
+                <div class="carousel-item">
+                    <a href="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
+                        <img src="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded-start" alt="Card title">
+                    </a>
+                </div>
+                {% endif %}
+                {% if advertisement.image_application_3 %}
+                <div class="carousel-item">
+                    <a href="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
+                        <img src="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                    </a>
+                </div>
+                {% endif %}
+                {% if advertisement.image_application_4 %}
+                <div class="carousel-item">
+                    <a href="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
+                        <img src="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                    </a>
+                </div>
+                {% endif %}
+                {% if advertisement.image_application_3 %}
+                <div class="carousel-item">
+                    <a href="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
+                        <img src="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                    </a>
+                </div>
+                {% endif %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+              </button>
             </div>
-            {% endif %}
-            {% if advertisement.image_application_2 %}
-            <div class="carousel-item">
-                <a href="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                    <img src="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded-start" alt="Card title">
-                </a>
-            </div>
-            {% endif %}
-            {% if advertisement.image_application_3 %}
-            <div class="carousel-item">
-                <a href="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                    <img src="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
-                </a>
-            </div>
-            {% endif %}
-            {% if advertisement.image_application_4 %}
-            <div class="carousel-item">
-                <a href="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                    <img src="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
-                </a>
-            </div>
-            {% endif %}
-            {% if advertisement.image_application_3 %}
-            <div class="carousel-item">
-                <a href="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                    <img src="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
-                </a>
-            </div>
-            {% endif %}
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Предыдущий</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Следующий</span>
-          </button>
         </div>
-        </div>
-        <div class="col">
+
+
+      <div class="col-md-12">
           <div class="card-body">
-            <h3 class="card-title">
-              <strong class="badge bg-primary">{{ advertisement.title }} </strong>
-            </h3>
-            <p class="card-text text-light nav-link">
-              {{ advertisement.description }}
-            </p>
-              <p>
-              <span class="card-text text-light">
-                  Цена: {{ advertisement.price }} ₽
-              </span>
-              </p>
-              <span class="card-text text-light">
-                  Аукцион: {% if advertisement.auction %} ✅ {% else %} ❌ {% endif %}
-              </span>
-                <h6 class="card-title">
-                  <ul class="navbar-nav me-auto mt-auto mt-lg-auto">
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle btn-outline-black" href="" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Контакты</a>
-                        <div class="dropdown-menu dropdown-menu-dark text-light btn-outline-dark bg-dark" aria-labelledby="dropdownId">
-                        <strong class="dropdown-item">
-                            {% if advertisement.user.email %} {{ advertisement.user.email }} {% else %} None email 🥲 {% endif %}
-                        </strong>
-                        <strong class="dropdown-item">
-                            {% if advertisement.contact %} {{ advertisement.contact }} {% else %} None contact 🥲 {% endif %}
-                        </strong>
-                      </div>
-                    </li>
-                  </ul>
-                </h6>
-              <p class="card-text"><small class="text-muted">
-                Размещено: {{ advertisement.created_at }}
-            </small></p>
+            <h1 class="card-title">
+              <strong class="badge bg-primary">{{ advertisement.name }}</strong> <strong class="text-white badge">{{ advertisement.title }}</strong>
+            </h1>
+                    <p></p>
+                  <strong class="card-text text-white">
+                    {{ advertisement.short_description }}
+                  </strong>
+                    <p></p>
+                  <strong class="card-text text-white">
+                    {{ advertisement.full_description }}
+                  </strong>
+                    <p></p>
+              <div class="col-auto">
+                  <a href="{{ advertisement.file_main.url }}" type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_main }}</a>
+                  {% if advertisement.file_additional %}
+                      <a href="{{ advertisement.file_additional.url }}" type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_additional }}</a>
+                  {% endif %}
+              </div>
+              <p class="card-text"><small class="text-muted">Размещено: {{ adv.created_at }} </small></p>
           </div>
         </div>
-      </div>
     </div>
   </div>
+</div>
+
 
 <p style="height: 45px"></p>
 
