@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  frontend:
+    hostname: frontend
+    env_file:
+      - ./.env
+    build:
+    #  context: ./advertisements
+      dockerfile: Dockerfile
+    ports:
+      - '443:443'
+
+    volumes:
+      - ./data:/app/data
+      - ./advertisements/media:/app/advertisements/media
+
+    restart: always
