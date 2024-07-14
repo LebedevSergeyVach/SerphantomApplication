@@ -38,4 +38,6 @@ certificate.key
 .env
 
 
-# Instructions
+# Static
+advertisements/static/admin
+advertisements/static/django_extensions
