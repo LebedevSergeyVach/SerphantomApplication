@@ -156,13 +156,6 @@ USE_TZ = True
 #     Path.joinpath(BASE_DIR, 'media')
 # ]
 
-STATICFILES_URL = 'staticfiles/'
-STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS_ROOT = [
-    os.path.join(BASE_DIR, 'staticfiles')
-]
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -175,6 +168,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_DIRS = [
     os.path.join(BASE_DIR, 'media')
+]
+
+STATICFILES_URL = 'staticfiles/'
+STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS_ROOT = [
+    os.path.join(BASE_DIR, 'staticfiles')
 ]
 
 # Default primary key field type
