@@ -24,7 +24,7 @@
     <div class="card mb-2 bg-black bg-gradient p-3" style="max-width: 1000px; margin-top: 20px;">
       <div class="row g-2 d-flex justify-content-center align-items-center">
         <div class="col-md-8">
-            <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide bg-black" data-bs-ride="carousel">
               <div class="carousel-indicators">
                 {% if advertisement.image_application_main %}
                     <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 {% endif %}
-                {% if advertisement.image_application_3 %}
+                {% if advertisement.image_application_5 %}
                 <div class="carousel-item">
                     <a href="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
                         <img src="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
@@ -111,7 +111,7 @@
                       <a href="{{ advertisement.file_additional.url }}" type="submit" class="btn btn-primary bg-gradient mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_additional }}</a>
                   {% endif %}
               </div>
-              <p class="card-text"><small class="text-muted">Размещено: {{ adv.created_at }} </small></p>
+              <p class="card-text"><small class="text-muted">Размещено: {{ advertisement.created_at }} </small></p>
           </div>
         </div>
     </div>
