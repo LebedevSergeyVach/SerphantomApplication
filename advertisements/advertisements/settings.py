@@ -32,7 +32,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config.DEBUG
-DEBUG = False
 
 
 ALLOWED_HOSTS = [
@@ -154,6 +153,13 @@ USE_TZ = True
 #
 # MEDIA_DIRS = [
 #     Path.joinpath(BASE_DIR, 'media')
+# ]
+#
+# STATICFILES_URL = 'staticfiles/'
+# STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#
+# STATICFILES_DIRS_ROOT = [
+#     Path.joinpath(BASE_DIR, 'staticfiles')
 # ]
 
 STATIC_URL = '/static/'

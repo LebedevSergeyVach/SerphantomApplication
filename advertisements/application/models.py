@@ -91,8 +91,10 @@ class WindowsApplication(models.Model):
         max_length=30,
     )
     name_file_additional = models.CharField(
-        verbose_name="Название",
+        verbose_name="Название дополнительного файла",
         max_length=30,
+        null=True,
+        blank=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -243,8 +245,10 @@ class AndroidApplication(models.Model):
         max_length=30,
     )
     name_file_additional = models.CharField(
-        verbose_name="Название",
+        verbose_name="Название дополнительного файла",
         max_length=30,
+        null=True,
+        blank=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
