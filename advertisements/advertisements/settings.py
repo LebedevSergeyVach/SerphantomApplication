@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config.DEBUG
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = [
