@@ -18,6 +18,8 @@ Windows application
         </div>
     </div>
 
+    {% if advertisements %}
+
     <div class="container bg-black">
 
       <div class="row">
@@ -70,8 +72,27 @@ Windows application
           {% endfor %}
         </div>
     </div>
+        <div style="margin: 60px;"></div>
 
-      <div style="margin: 60px;"></div>
+    {% else %}
+        <div style="margin: 200px;"></div>
+            <div class="d-flex align-items-center justify-content-center">
+            <div class="text-center">
+                <h1 class="display-1 fw-bold text-primary">Opps!</h1>
+                <p class="fs-2 text-primary"> <span>На данный момент нет программ для Windows!</span></p>
+                  <p class="lead text-primary">
+                    Посмотрите приложения для Android или перейдите на главную страницу.
+                  </p>
+                    <a href="{% url 'index-android' %}" class="btn btn-primary btn-outline-dark text-light">Android</a>
+                    <a href="{% url 'welcome' %}" class="btn btn-primary btn-outline-dark text-light">Go Home</a>
+                    {% if user.is_superuser %}
+                        <a href="/admin" class="btn btn-primary btn-outline-dark text-light">Admin</a>
+                    {% endif %}
+                </div>
+            </div>
+        <div style="margin: 200px;"></div>
+    {% endif %}
+
     </div>
 </div>
 
