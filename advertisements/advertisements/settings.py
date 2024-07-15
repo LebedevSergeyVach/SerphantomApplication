@@ -184,6 +184,19 @@ STATICFILES_DIRS_ROOT = [
     os.path.join(BASE_DIR, 'staticfiles')
 ]
 
+# Включаем обслуживание медиа-файлов
+# if DEBUG:
+#     INSTALLED_APPS += ['django.contrib.staticfiles']
+#     STATIC_URL = '/static/'
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# else:
+#     MIDDLEWARE += ['django.middleware.common.CommonMiddleware']
+#     STATIC_URL = '/static/'
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     MEDIA_URL = '/media/'
+#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
