@@ -10,8 +10,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - '443:443'
-    environment:
-      - DEBUG=True
 
     volumes:
       - ./data:/app/data
