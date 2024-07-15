@@ -13,8 +13,8 @@
 <div style="margin: 30px;"></div>
     <div class="container overflow-hidden text-center">
         <div class="d-grid gap-3 mx-auto">
-              <div class="display-4">
-                <span class="badge bg-primary">{{ advertisement.title }}</span>
+              <div class="display-5">
+                <span class="badge bg-primary">{{ advertisement.name }}</span>
               </div>
         </div>
     </div>
@@ -94,8 +94,12 @@
       <div class="col-md-12">
           <div class="card-body">
             <h1 class="card-title">
-              <strong class="badge bg-primary">{{ advertisement.name }}</strong> <strong class="text-white badge">{{ advertisement.title }}</strong>
+              <strong class="badge bg-primary">{{ advertisement.name }}</strong>
             </h1>
+              <p></p>
+                  <h3>
+                    <strong class="text-white">{{ advertisement.title }}</strong>
+                  </h3>
                     <p></p>
                   <strong class="card-text text-white">
                     {{ advertisement.short_description }}
