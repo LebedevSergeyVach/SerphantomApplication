@@ -41,3 +41,4 @@ certificate.key
 # Static
 advertisements/static/admin
 advertisements/static/django_extensions
+advertisements/staticfiles

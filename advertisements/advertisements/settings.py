@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = config.DEBUG
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = [
@@ -164,10 +164,10 @@ USE_TZ = True
 # ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'staticfiles')
 ]
 
 MEDIA_URL = '/media/'
@@ -181,7 +181,7 @@ STATICFILES_URL = 'staticfiles/'
 STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS_ROOT = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'staticfiles')
 ]
 
 # Default primary key field type
