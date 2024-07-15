@@ -11,7 +11,7 @@ services:
     ports:
       - '443:443'
     environment:
-      - DEBUG=1
+      - DEBUG=True
 
     volumes:
       - ./data:/app/data
