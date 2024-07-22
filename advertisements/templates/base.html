@@ -52,7 +52,7 @@
         <div class="row mb-1">
             <div class="row-cols-1">
                 <a class="nav-link" aria-current="page" href="{% url 'welcome' %}">
-                    <button type="submit" class="btn btn-primary btn-outline-dark text-light">Main page Website</button>
+                    <button type="submit" class="btn btn-primary btn-outline-dark text-light">Go Home</button>
                 </a>
                 {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
                     <a class="nav-link" aria-current="page" href="/admin">
