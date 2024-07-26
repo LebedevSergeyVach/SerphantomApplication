@@ -52,35 +52,35 @@
                 {% if advertisement.image_application_main %}
                 <div class="carousel-item active">
                     <a href="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                        <img src="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                        <img src="{% if advertisement.image_application_main %} {{ advertisement.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt={{ advertisement.name }}>
                     </a>
                 </div>
                 {% endif %}
                 {% if advertisement.image_application_2 %}
                 <div class="carousel-item">
                     <a href="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                        <img src="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded-start" alt="Card title">
+                        <img src="{% if advertisement.image_application_2 %} {{ advertisement.image_application_2.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded-start" alt={{ advertisement.name }}>
                     </a>
                 </div>
                 {% endif %}
                 {% if advertisement.image_application_3 %}
                 <div class="carousel-item">
                     <a href="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                        <img src="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                        <img src="{% if advertisement.image_application_3 %} {{ advertisement.image_application_3.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt={{ advertisement.name }}>
                     </a>
                 </div>
                 {% endif %}
                 {% if advertisement.image_application_4 %}
                 <div class="carousel-item">
                     <a href="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                        <img src="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                        <img src="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="{{ advertisement.name }}>
                     </a>
                 </div>
                 {% endif %}
                 {% if advertisement.image_application_5 %}
                 <div class="carousel-item">
                     <a href="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                        <img src="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                        <img src="{% if advertisement.image_application_5 %} {{ advertisement.image_application_5.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt={{ advertisement.name }}>
                     </a>
                 </div>
                 {% endif %}

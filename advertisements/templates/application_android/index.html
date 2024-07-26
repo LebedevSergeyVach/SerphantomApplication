@@ -46,7 +46,7 @@ Android application
               <div class="row g-0">
                 <div class="col-md-5">
                   <a href="{{ adv.get_absolute_url }}" class="nav-link">
-                    <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt="Card title">
+                    <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %} " class="img-fluid rounded-start" alt={{ adv.name }}>
                   </a>
                 </div>
                 <div class="col-md-7">
