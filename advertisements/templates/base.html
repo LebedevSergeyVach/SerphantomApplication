@@ -58,6 +58,12 @@
                     <a class="nav-link" aria-current="page" href="/admin">
                         <button type="submit" class="btn btn-primary btn-outline-dark text-light">ADMIN</button>
                     </a>
+                    <a class="nav-link" aria-current="page" href="{% url 'add-windows-post' %}">
+                        <button type="submit" class="btn btn-primary btn-outline-dark text-light">Add Windows</button>
+                    </a>
+                    <a class="nav-link" aria-current="page" href="{% url 'add-android-post' %}">
+                        <button type="submit" class="btn btn-primary btn-outline-dark text-light">Add Android</button>
+                    </a>
                 {% else %}
                 {% endif %}
             </div>

@@ -5,7 +5,36 @@
 Add application Windows
 {% endblock %}
 
-{% block active_3 %}active{% endblock %}
+{% block active_1 %}active{% endblock %}
 
 {% block content %}
+
+    <div style="margin: 40px;"></div>
+    <div class="container overflow-hidden text-center">
+        <div class="d-grid gap-3 mx-auto">
+              <div class="display-4">
+                <span class="badge bg-primary">Продукция для Windows</span>
+              </div>
+        </div>
+    </div>
+    <div style="margin: 40px;"></div>
+
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="container bg-black d-flex justify-content-center align-items-center text-light">
+            <div class="col-md-6">
+                {{ form.as_p }}
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-outline-dark text-light">Принять</button>
+            </div>
+        </div>
+    </form>
+
+    <div style="margin: 40px;"></div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
 {% endblock %}
