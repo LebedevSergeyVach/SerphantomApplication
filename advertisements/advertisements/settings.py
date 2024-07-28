@@ -16,7 +16,7 @@ from pathlib import Path
 
 from .config import config
 
-from .secrets import SECRET_KEY
+from .secrets import SECRET_KEY, external_ip, internal_ip
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,8 +39,8 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '192.168.1.200',
     '192.168.1.202',
-    '192.168.1.204',
-    '109.111.185.225',
+    internal_ip,
+    external_ip,
     '*',
 ]
 
