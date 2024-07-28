@@ -58,8 +58,18 @@ sudo docker container prune
 sudo docker rm $(docker ps -a -q)
 ```
 
-* [Docker clean casssh -p 5000 debian@192.168.1.204he](https://dev.to/ajeetraina/how-to-clear-docker-cache-2nnp)
+* [Docker clean casssh](https://dev.to/ajeetraina/how-to-clear-docker-cache-2nnp)
 
+## Project dependencies
+```commandline
+venv\Scripts\activate
+```
+```commandline
+source venv/bin/activate
+```
+```commandline
+pip install -r requirements.txt
+```
 ___
 
 [README.md](..%2FREADME.md)
