@@ -125,34 +125,34 @@ ___
 
 ### Инструменты форматирования и анализа кода
 
-4. **ESLint**
+1. **ESLint**
    - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
    - Описание: Инструмент анализа и форматирования JavaScript и TypeScript кода.
 
-5. **Prettier**
+2. **Prettier**
    - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
    - Описание: Инструмент форматирования кода для JavaScript, CSS и HTML.
 
 ### Визуальные улучшения
 
-6. **Bracket Pair Colorizer**
+1. **Bracket Pair Colorizer**
    - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
    - Описание: Визуальное выделение пар скобок.
 
-7. **Material Icon Theme**
+2. **Material Icon Theme**
    - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
    - Описание: Красивые иконки для файлов и папок.
 
 ### Инструменты разработки
 
-8. **GitLens**
+1. **GitLens**
    - [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
    - Описание: Расширенная поддержка Git в VSCode.
 
-9. **Live Server**
+2. **Live Server**
    - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
    - Описание: Локальный запуск и просмотр изменений в реальном времени.
 
-10. **SQLite**
+3. **SQLite**
     - [SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
     - Описание: Работа с базами данных SQLite.
