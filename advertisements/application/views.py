@@ -7,6 +7,7 @@ from django.db.models import Count
 from django.contrib.auth.models import User
 
 from .models import WindowsApplication, AndroidApplication
+from .forms import AdvertisementFormWindows, AdvertisementFormAndroid
 
 
 class WebViews(object):
@@ -72,12 +73,44 @@ class WebViews(object):
             request, 'application_android/application.html', context=context
         )
 
+    @login_required(login_url=reverse_lazy('welcome'))
     def add_windows_post(request):
+        if request.method == "POST":
+            form = AdvertisementFormWindows(request.POST, request.FILES)
+
+            if form.is_valid():
+                advertisement = form.save(commit=False)
+                advertisement.user = request.user
+                advertisement.save()
+
+                return redirect(reverse("index-windows"))
+
+        else:
+            form = AdvertisementFormWindows()
+
+        context = {'form': form}
+
         return render(
-            request, 'application_windows/add-windows-post.html'
+            request, 'application_windows/add-application.html', context=context
         )
 
+    @login_required(login_url=reverse_lazy('welcome'))
     def add_android_post(request):
+        if request.method == "POST":
+            form = AdvertisementFormAndroid(request.POST, request.FILES)
+
+            if form.is_valid():
+                advertisement = form.save(commit=False)
+                advertisement.user = request.user
+                advertisement.save()
+
+                return redirect(reverse("index-android"))
+
+        else:
+            form = AdvertisementFormAndroid()
+
+        context = {'form': form}
+
         return render(
-            request, 'application_android/add-android-post.html'
+            request, 'application_android/add-application.html', context=context
         )
