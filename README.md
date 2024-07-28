@@ -111,48 +111,23 @@ ___
 
 ### Основные расширения
 
-1. **Python**
-   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-   - Описание: Основное расширение для работы с Python в VSCode.
-
-2. **Django**
-   - [Django](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django)
-   - Описание: Поддержка синтаксиса и фрагментов кода для Django.
-
-3. **Pylance**
-   - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
-   - Описание: Расширенная поддержка языка Python, включая IntelliSense и анализ кода.
+1. [**Python**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) - Основное расширение для работы с Python в VSCode
+2. [**Django**](https://marketplace.visualstudio.com/items?itemName=batisteo.vscode-django) - Поддержка синтаксиса и фрагментов кода для Django
+3. [**Django Temlate**](https://marketplace.visualstudio.com/items?itemName=bibhasdn.django-html) - Поддержка языковой раскраски и пользовательских фрагментов для языка шаблонов Django
+4. [**Pylance**](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) - Расширенная поддержка языка Python, включая IntelliSense и анализ кода
 
 ### Инструменты форматирования и анализа кода
 
-1. **ESLint**
-   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-   - Описание: Инструмент анализа и форматирования JavaScript и TypeScript кода.
-
-2. **Prettier**
-   - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-   - Описание: Инструмент форматирования кода для JavaScript, CSS и HTML.
+1. [**ESLint**](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Инструмент анализа и форматирования JavaScript и TypeScript кода
+2. [**Prettier**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Инструмент форматирования кода для JavaScript, CSS и HTML
 
 ### Визуальные улучшения
 
-1. **Bracket Pair Colorizer**
-   - [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
-   - Описание: Визуальное выделение пар скобок.
-
-2. **Material Icon Theme**
-   - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-   - Описание: Красивые иконки для файлов и папок.
+1. [**Bracket Pair Colorizer**](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) - Визуальное выделение пар скобок
+2. [**Material Icon Theme**](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Красивые иконки для файлов и папок
 
 ### Инструменты разработки
 
-1. **GitLens**
-   - [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-   - Описание: Расширенная поддержка Git в VSCode.
-
-2. **Live Server**
-   - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-   - Описание: Локальный запуск и просмотр изменений в реальном времени.
-
-3. **SQLite**
-    - [SQLite](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
-    - Описание: Работа с базами данных SQLite.
+1. [**GitLens**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - асширенная поддержка Git в VSCode
+2. [**Live Server**](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Локальный запуск и просмотр изменений в реальном времени
+3. [**SQLite**](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) - Работа с базами данных SQLite
