@@ -90,6 +90,7 @@ class WindowsApplication(models.Model):
         verbose_name="Название",
         max_length=30,
     )
+
     name_file_additional = models.CharField(
         verbose_name="Название дополнительного файла",
         max_length=30,
@@ -244,6 +245,7 @@ class AndroidApplication(models.Model):
         verbose_name="Название",
         max_length=30,
     )
+
     name_file_additional = models.CharField(
         verbose_name="Название дополнительного файла",
         max_length=30,
