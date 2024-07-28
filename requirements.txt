@@ -1,3 +1,7 @@
-Django==4.2.2
-Pillow==10.0.0
 python==3.11.0
+Django==4.2.2
+django-extensions==3.2.3
+Pillow==10.0.0
+pyopenssl==23.3.0
+werkzeug==3.0.1
+
