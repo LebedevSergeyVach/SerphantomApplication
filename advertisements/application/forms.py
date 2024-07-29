@@ -1,11 +1,14 @@
+""" Forms for wiews POSt add application """
+
 from django import forms
 from .models import WindowsApplication, AndroidApplication
 
 
 class AdvertisementFormWindows(forms.ModelForm):
-    """Form for creating new advertisements"""
+    """ Form for creating new WindowsApplication """
 
     class Meta:
+        """ Meta information for WindowsApplication """
         model = WindowsApplication
         fields = [
             'name', 'title',
@@ -53,7 +56,8 @@ class AdvertisementFormWindows(forms.ModelForm):
             'name_file_additional': forms.TextInput(
                 attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
             ),
-            'file_additional': forms.FileInput(attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+            'file_additional': forms.FileInput(
+                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
             ),
         }
 
@@ -63,18 +67,21 @@ class AdvertisementFormWindows(forms.ModelForm):
         title = self.cleaned_data.get('title')
 
         if name.startswith('?'):
+            """ Validate that the title starts with a question mark """
             raise forms.ValidationError("Title cannot start with a question mark")
 
         if title.startswith('?'):
+            """ Validate that the title ends with a question mark """
             raise forms.ValidationError("Title cannot start with a question mark")
 
         return name, title
 
 
 class AdvertisementFormAndroid(forms.ModelForm):
-    """Form for creating new advertisements"""
+    """Form for creating new AndroidApplication"""
 
     class Meta:
+        """ Meta information for AndroidApplication """
         model = AndroidApplication
         fields = [
             'name', 'title',
@@ -122,7 +129,8 @@ class AdvertisementFormAndroid(forms.ModelForm):
             'name_file_additional': forms.TextInput(
                 attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
             ),
-            'file_additional': forms.FileInput(attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+            'file_additional': forms.FileInput(
+                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
             ),
         }
 
@@ -132,9 +140,11 @@ class AdvertisementFormAndroid(forms.ModelForm):
         title = self.cleaned_data.get('title')
 
         if name.startswith('?'):
+            """ Validate that the title starts with a question mark """
             raise forms.ValidationError("Title cannot start with a question mark")
 
         if title.startswith('?'):
+            """ Validate that the title starts with a question mark """
             raise forms.ValidationError("Title cannot start with a question mark")
 
         return name, title

@@ -1,3 +1,5 @@
+""" Views the list """
+
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -11,9 +13,10 @@ from .forms import AdvertisementFormWindows, AdvertisementFormAndroid
 
 
 class WebViews(object):
-    """Web views for the app."""
+    """ Web views for the app """
 
     def index_windows(request):
+        """ Returns the list of windows application """
         name = request.GET.get('query')
 
         if name:
@@ -33,6 +36,7 @@ class WebViews(object):
         )
 
     def application_windows(request, pk):
+        """ Returns the application for windows """
         advertisement = WindowsApplication.objects.get(pk=pk)
 
         context = {
@@ -44,6 +48,7 @@ class WebViews(object):
         )
 
     def index_android(request):
+        """ Returns the list of android application """
         name = request.GET.get('query')
 
         if name:
@@ -63,6 +68,7 @@ class WebViews(object):
         )
 
     def application_android(request, pk):
+        """ Returns the application for adndroid """
         advertisement = AndroidApplication.objects.get(pk=pk)
 
         context = {
@@ -75,6 +81,7 @@ class WebViews(object):
 
     @login_required(login_url=reverse_lazy('welcome'))
     def add_windows_post(request):
+        """ Returns the add application for windows """
         if request.method == "POST":
             form = AdvertisementFormWindows(request.POST, request.FILES)
 
@@ -96,6 +103,7 @@ class WebViews(object):
 
     @login_required(login_url=reverse_lazy('welcome'))
     def add_android_post(request):
+        """ Returns the add application for android """
         if request.method == "POST":
             form = AdvertisementFormAndroid(request.POST, request.FILES)
 

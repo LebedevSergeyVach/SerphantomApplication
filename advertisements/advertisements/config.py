@@ -1,3 +1,5 @@
+""" Configuration on server """
+
 from os import getenv
 from typing import NoReturn
 from dataclasses import dataclass

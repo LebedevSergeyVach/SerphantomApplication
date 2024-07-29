@@ -1,3 +1,5 @@
+""" Admin interface for accessing """
+
 from django.contrib import admin
 from .models import WindowsApplication, AndroidApplication
 
