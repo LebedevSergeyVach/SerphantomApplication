@@ -11,6 +11,8 @@ from django.contrib.auth.models import User
 from .models import WindowsApplication, AndroidApplication
 from .forms import AdvertisementFormWindows, AdvertisementFormAndroid
 
+import advertisements
+
 
 class WebViews(object):
     """ Web views for the app """
@@ -82,20 +84,27 @@ class WebViews(object):
     @login_required(login_url=reverse_lazy('welcome'))
     def add_windows_post(request):
         """ Returns the add application for windows """
-        if request.method == "POST":
-            form = AdvertisementFormWindows(request.POST, request.FILES)
+        redirect_url = reverse('404')
 
-            if form.is_valid():
-                advertisement = form.save(commit=False)
-                advertisement.user = request.user
-                advertisement.save()
+        if request.user.username in advertisements.secrets.users or request.user.is_superuser:
 
-                return redirect(reverse("index-windows"))
+            if request.method == "POST":
+                form = AdvertisementFormWindows(request.POST, request.FILES)
+
+                if form.is_valid():
+                    advertisement = form.save(commit=False)
+                    advertisement.user = request.user
+                    advertisement.save()
+
+                    return redirect(reverse("index-windows"))
+
+            else:
+                form = AdvertisementFormWindows()
+
+            context = {'form': form}
 
         else:
-            form = AdvertisementFormWindows()
-
-        context = {'form': form}
+            return redirect(redirect_url)
 
         return render(
             request, 'application_windows/add-application.html', context=context
@@ -104,20 +113,27 @@ class WebViews(object):
     @login_required(login_url=reverse_lazy('welcome'))
     def add_android_post(request):
         """ Returns the add application for android """
-        if request.method == "POST":
-            form = AdvertisementFormAndroid(request.POST, request.FILES)
+        redirect_url = reverse('404')
 
-            if form.is_valid():
-                advertisement = form.save(commit=False)
-                advertisement.user = request.user
-                advertisement.save()
+        if request.user.username in advertisements.secrets.users or request.user.is_superuser:
 
-                return redirect(reverse("index-android"))
+            if request.method == "POST":
+                form = AdvertisementFormAndroid(request.POST, request.FILES)
+
+                if form.is_valid():
+                    advertisement = form.save(commit=False)
+                    advertisement.user = request.user
+                    advertisement.save()
+
+                    return redirect(reverse("index-android"))
+
+            else:
+                form = AdvertisementFormAndroid()
+
+            context = {'form': form}
 
         else:
-            form = AdvertisementFormAndroid()
-
-        context = {'form': form}
+            return redirect(redirect_url)
 
         return render(
             request, 'application_android/add-application.html', context=context
