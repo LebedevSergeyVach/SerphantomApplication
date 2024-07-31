@@ -47,6 +47,9 @@ sudo docker container prune
 ```commandline
 sudo docker builder prune
 ```
+```commandline
+sudo docker image prune -a -f
+```
 
 ___
 
@@ -99,6 +102,9 @@ sudo docker container prune
 ```
 ```commandline
 sudo docker builder prune
+```
+```commandline
+sudo docker image prune -a -f
 ```
 
 ---
