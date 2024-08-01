@@ -10,7 +10,7 @@ class WindowsApplicationAdmin(admin.ModelAdmin):
     """ WindowsApplication Admin """
 
     list_display = [
-        'id', 'name', 'show_image_application_main', 'file_main'
+        'id', 'name', 'show_image_application_main', 'file_main', 'created_date',
     ]
 
     list_filter = [
@@ -39,7 +39,7 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
     """ AndroidApplication Admin """
 
     list_display = [
-        'id', 'name', 'show_image_application_main', 'file_main'
+        'id', 'name', 'show_image_application_main', 'file_main', 'created_date',
     ]
 
     list_filter = [
@@ -64,5 +64,6 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
     )
 
 
+""" Registration methods """
 admin.site.register(WindowsApplication, WindowsApplicationAdmin)
 admin.site.register(AndroidApplication, AndroidApplicationAdmin)
