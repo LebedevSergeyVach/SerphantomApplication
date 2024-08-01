@@ -10,7 +10,10 @@ class WindowsApplicationAdmin(admin.ModelAdmin):
     """ WindowsApplication Admin """
 
     list_display = [
-        'id', 'name', 'show_image_application_main', 'file_main', 'created_date',
+        'id', 'name',
+        'show_image_application_main', 'show_image_application_2', 'show_image_application_3',
+        'name_file_main', 'file_main',
+        'created_date',
     ]
 
     list_filter = [
@@ -39,7 +42,10 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
     """ AndroidApplication Admin """
 
     list_display = [
-        'id', 'name', 'show_image_application_main', 'file_main', 'created_date',
+        'id', 'name',
+        'show_image_application_main', 'show_image_application_2', 'show_image_application_3',
+        'name_file_main', 'file_main',
+        'created_date',
     ]
 
     list_filter = [

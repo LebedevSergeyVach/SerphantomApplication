@@ -89,7 +89,7 @@ class WindowsApplication(models.Model):
     )
 
     name_file_main = models.CharField(
-        verbose_name="Название",
+        verbose_name="Название главного файла",
         max_length=30,
     )
 
