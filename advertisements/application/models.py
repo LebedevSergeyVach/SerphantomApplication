@@ -139,12 +139,64 @@ class WindowsApplication(models.Model):
                 '<span style="color: blue; font-weight: bold;">{}</span>', self.user.username
             )
 
-    @admin.display(description="Изображения")
+    @admin.display(description="Изображение")
     def show_image_application_main(self):
         """Show the image"""
         if self.image_application_main:
             return format_html(
                 '<img src={} style="width: 70px; height: 50px">', self.image_application_main.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 2")
+    def show_image_application_2(self):
+        """Show the image"""
+        if self.image_application_2:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_2.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 3")
+    def show_image_application_3(self):
+        """Show the image"""
+        if self.image_application_3:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_3.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 4")
+    def show_image_application_4(self):
+        """Show the image"""
+        if self.image_application_4:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_4.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 5")
+    def show_image_application_5(self):
+        """Show the image"""
+        if self.image_application_5:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_5.url
             )
         else:
             return format_html(
@@ -294,12 +346,64 @@ class AndroidApplication(models.Model):
                 '<span style="color: blue; font-weight: bold;">{}</span>', self.user.username
             )
 
-    @admin.display(description="Изображения")
+    @admin.display(description="Изображение")
     def show_image_application_main(self):
         """Show the image"""
         if self.image_application_main:
             return format_html(
                 '<img src={} style="width: 70px; height: 50px">', self.image_application_main.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 2")
+    def show_image_application_2(self):
+        """Show the image"""
+        if self.image_application_2:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_2.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 3")
+    def show_image_application_3(self):
+        """Show the image"""
+        if self.image_application_3:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_3.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 4")
+    def show_image_application_4(self):
+        """Show the image"""
+        if self.image_application_4:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_4.url
+            )
+        else:
+            return format_html(
+                '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
+                'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Изображение 5")
+    def show_image_application_5(self):
+        """Show the image"""
+        if self.image_application_5:
+            return format_html(
+                '<img src={} style="width: 70px; height: 50px">', self.image_application_5.url
             )
         else:
             return format_html(
