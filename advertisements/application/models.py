@@ -100,6 +100,11 @@ class WindowsApplication(models.Model):
         blank=True,
     )
 
+    verified = models.BooleanField(
+        verbose_name="Файл проверен администратором сайта",
+        default=False,
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -202,6 +207,18 @@ class WindowsApplication(models.Model):
             return format_html(
                 '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
                 'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Файл проверен")
+    def show_verified(self):
+        """Show the verified status"""
+        if self.verified:
+            return format_html(
+                '<span style="color: blue; font-weight: bold;">🍏</span>'
+            )
+        else:
+            return format_html(
+                '<span style="color: red; font-weight: bold;">🍎</span>'
             )
 
     def __str__(self):
@@ -307,6 +324,11 @@ class AndroidApplication(models.Model):
         blank=True,
     )
 
+    verified = models.BooleanField(
+        verbose_name="Файл проверен администратором сайта",
+        default=False,
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -409,6 +431,18 @@ class AndroidApplication(models.Model):
             return format_html(
                 '<img src="https://pa1.narvii.com/7435/efabf45acf29e0c694a56ec3871779f6f5434fc7r1-640-360_hq.gif"'
                 'style="width: 70px; height: 50px">'
+            )
+
+    @admin.display(description="Файл проверен")
+    def show_verified(self):
+        """Show the verified status"""
+        if self.verified:
+            return format_html(
+                '<span style="color: blue; font-weight: bold;">🍏</span>'
+            )
+        else:
+            return format_html(
+                '<span style="color: red; font-weight: bold;">🍎</span>'
             )
 
     def __str__(self):
