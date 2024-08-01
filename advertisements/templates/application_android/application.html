@@ -120,6 +120,11 @@
                     {{ advertisement.full_description }}
                   </strong>
                     <p></p>
+                  <strong class="card-text text-white">
+                    {% if advertisement.verified %}Файл проверен администратором сайта Serphantom -  ✅
+                    {% else %}Файл не проверен администратором сайта Serphantom - ❌{% endif %}
+                  </strong>
+                    <p></p>
               <div class="col-auto">
                   <a href="{{ advertisement.file_main.url }}" download={{ advertisement.name }} type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_main }}</a>
                   {% if advertisement.file_additional %}
