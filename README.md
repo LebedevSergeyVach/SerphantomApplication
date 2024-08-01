@@ -5,7 +5,8 @@ The project is written on the [Django](https://www.djangoproject.com) framework.
 The backend is written in [python](https://www.python.org).
 Frontend is written using [bootstrap](https://getbootstrap.com).
 
-This site hosts programs and applications for Windows and Android. Any user of the site can use the necessary programs or applications.
+This site hosts programs and applications for Windows and Android. 
+Any user of the site can download the necessary programs or applications.
 This site is written on pure enthusiasm.
 
 ___
@@ -60,7 +61,8 @@ ___
 # Приложения и продукция Serphantom Space
 <a name="вверх"></a>
 
-На данном сайте размещаются программы и приложения для Windows и Android. Любой пользователь сайта может необходимые ему программы или приложения.
+На данном сайте размещаются программы и приложения для Windows и Android. 
+Любой пользователь сайта может скачать необходимые ему программы или приложения.
 Данный сайт написан на чистом энтузиазме.
 
 ___
