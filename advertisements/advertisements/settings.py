@@ -16,7 +16,7 @@ from pathlib import Path
 
 from .config import config
 
-from .secrets import SECRET_KEY, external_ip, internal_ip
+from .secrets import SECRET_KEY, external_ip, internal_ip, time_zone
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,8 +37,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '192.168.1.200',
-    '192.168.1.202',
     internal_ip,
     external_ip,
     '*',
@@ -132,7 +130,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# Смена часового пояса
+# TIME_ZONE = 'UTC'
+TIME_ZONE = time_zone
 
 USE_I18N = True
 
