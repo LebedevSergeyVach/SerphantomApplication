@@ -21,43 +21,82 @@ class AdvertisementFormWindows(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Название программы',
+                }
             ),
             'title': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Заголовок для программы',
+                }
             ),
             'short_description': forms.Textarea(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Краткое описание программы'
+                }
             ),
             'full_description': forms.Textarea(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Полное описание программы'
+                }
             ),
             'image_application_main': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Главное изображение программы'
+                }
             ),
             'image_application_2': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Второе изображение программы'
+                }
             ),
             'image_application_3': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Третье изображение программы'
+                }
             ),
             'image_application_4': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Четвёртое изображение программы'
+                }
             ),
             'image_application_5': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Пятое изображение программы'
+                }
             ),
             'name_file_main': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Название главного файла программы'
+                }
             ),
             'file_main': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Главный файл программы'
+                }
             ),
             'name_file_additional': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Название дополнительного файла программы'
+                }
             ),
             'file_additional': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Дополнительный файл программы'
+                }
             ),
         }
 
@@ -94,43 +133,82 @@ class AdvertisementFormAndroid(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Название программы',
+                }
             ),
             'title': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Заголовок для программы',
+                }
             ),
             'short_description': forms.Textarea(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Краткое описание программы'
+                }
             ),
             'full_description': forms.Textarea(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Полное описание программы'
+                }
             ),
             'image_application_main': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Главное изображение программы'
+                }
             ),
             'image_application_2': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Второе изображение программы'
+                }
             ),
             'image_application_3': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Третье изображение программы'
+                }
             ),
             'image_application_4': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Четвёртое изображение программы'
+                }
             ),
             'image_application_5': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Пятое изображение программы'
+                }
             ),
             'name_file_main': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Название главного файла программы'
+                }
             ),
             'file_main': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Главный файл программы'
+                }
             ),
             'name_file_additional': forms.TextInput(
-                attrs={'class': 'form-control bg-dark text-light btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-light btn-outline-primary',
+                    'placeholder': 'Название дополнительного файла программы'
+                }
             ),
             'file_additional': forms.FileInput(
-                attrs={'class': 'form-control bg-dark text-primary btn-outline-primary'}
+                attrs={
+                    'class': 'form-control bg-dark text-primary btn-outline-primary',
+                    'placeholder': 'Дополнительный файл программы'
+                }
             ),
         }
 
