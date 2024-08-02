@@ -2,18 +2,12 @@
 {% load static %}
 
 {% block title %}
-{{ advertisement.name }}
+    {{ advertisement.name }}
 {% endblock %}
 
 {% block meta_description %}
-    Serphantom Space - сайт для пользователей Windows и Android.
-    На данном сайте размещаются программы и приложения для Windows и Android.
-    Любой пользователь сайта может необходимые ему программы или приложения.
-    Добро пожаловать, дорогой гость!
-
     Serphantom Space - {{ advertisement.name }}.
-    Programs, applications and products for Android.
-    Программы, приложения и продукция для Android.
+    {{ meta }}
 {% endblock %}
 
 {% block active_2 %}active{% endblock %}
@@ -78,7 +72,7 @@
                 {% if advertisement.image_application_4 %}
                 <div class="carousel-item">
                     <a href="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}">
-                        <img src="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded" alt="{{ advertisement.name }}>
+                        <img src="{% if advertisement.image_application_4 %} {{ advertisement.image_application_4.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded" alt={{ advertisement.name }}>
                     </a>
                 </div>
                 {% endif %}
@@ -121,8 +115,8 @@
                   </strong>
                     <p></p>
                   <strong class="card-text text-white">
-                    {% if advertisement.verified %}Файл проверен администратором сайта Serphantom -  ✅
-                    {% else %}Файл не проверен администратором сайта Serphantom - ❌{% endif %}
+                    {% if advertisement.verified %}{{ verified }}
+                    {% else %}{{ not_verified }}{% endif %}
                   </strong>
                     <p></p>
               <div class="col-auto">
