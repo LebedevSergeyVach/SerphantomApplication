@@ -2,18 +2,11 @@
 {% load static %}
 
 {% block title %}
-Windows application
+    {{ name_site }}
 {% endblock %}
 
 {% block meta_description %}
-    Serphantom Space - сайт для пользователей Windows и Android.
-    На данном сайте размещаются программы и приложения для Windows и Android.
-    Любой пользователь сайта может необходимые ему программы или приложения.
-    Добро пожаловать, дорогой гость!
-
-    Serphantom Space Windows application.
-    Programs, applications and products for Windows.
-    Программы, приложения и продукция для Windows.
+    {{ meta }}
 {% endblock %}
 
 {% block active_1 %}active{% endblock %}
@@ -24,7 +17,7 @@ Windows application
     <div class="container overflow-hidden text-center">
         <div class="d-grid gap-3 mx-auto">
               <div class="display-4">
-                <span class="badge bg-primary">Продукция для Windows</span>
+                <span class="badge bg-primary">{{ description }}</span>
               </div>
         </div>
     </div>
@@ -36,7 +29,7 @@ Windows application
       <div class="row">
         <form class="row g-4 center" method="get">
           <div class="col-auto w-50">
-            <input name="query" value="{% if title %} {{ title }} {% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
+            <input placeholder="Поиск продукции для Windows" name="query" value="{% if title %} {{ title }} {% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
           </div>
           <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Найти</button>
