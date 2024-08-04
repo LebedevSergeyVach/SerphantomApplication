@@ -17,6 +17,7 @@ class AdvertisementFormWindows(forms.ModelForm):
             'image_application_4', 'image_application_5',
             'name_file_main', 'file_main',
             'name_file_additional', 'file_additional',
+            'verified',
         ]
 
         widgets = {
@@ -96,6 +97,11 @@ class AdvertisementFormWindows(forms.ModelForm):
                 attrs={
                     'class': 'form-control bg-dark text-primary btn-outline-primary',
                     'placeholder': 'Дополнительный файл программы'
+                }
+            ),
+            'verified': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input btn-outline-primary'
                 }
             ),
         }
@@ -113,7 +119,7 @@ class AdvertisementFormWindows(forms.ModelForm):
             """ Validate that the title ends with a question mark """
             raise forms.ValidationError("Title cannot start with a question mark")
 
-        return name, title
+        return name
 
 
 class AdvertisementFormAndroid(forms.ModelForm):
@@ -129,6 +135,7 @@ class AdvertisementFormAndroid(forms.ModelForm):
             'image_application_4', 'image_application_5',
             'name_file_main', 'file_main',
             'name_file_additional', 'file_additional',
+            'verified',
         ]
 
         widgets = {
@@ -210,6 +217,11 @@ class AdvertisementFormAndroid(forms.ModelForm):
                     'placeholder': 'Дополнительный файл программы'
                 }
             ),
+            'verified': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input btn-outline-primary'
+                }
+            ),
         }
 
     def clean_title(self):
@@ -222,7 +234,7 @@ class AdvertisementFormAndroid(forms.ModelForm):
             raise forms.ValidationError("Title cannot start with a question mark")
 
         if title.startswith('?'):
-            """ Validate that the title starts with a question mark """
+            """ Validate that the title ends with a question mark """
             raise forms.ValidationError("Title cannot start with a question mark")
 
-        return name, title
+        return name

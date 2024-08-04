@@ -54,6 +54,9 @@ class WebViews(object):
 
     def application_windows(request, pk):
         """ Returns the application for windows """
+        redirect_url = reverse('index-windows')
+
+        name = request.GET.get('query')
         advertisement = WindowsApplication.objects.get(pk=pk)
 
         verified = 'Файл проверен администратором сайта Serphantom -  ✅'
@@ -69,15 +72,24 @@ class WebViews(object):
             'Программы, приложения и продукция для Android. '
         )
 
+        if name:
+            advertisements = WindowsApplication.objects.filter(
+                name__icontains=name.strip()
+            )
+            return redirect(redirect_url)
+        else:
+            advertisements = WindowsApplication.objects.all()
+
         context = {
             'advertisement': advertisement,
             'meta': meta,
             'verified': verified,
             'not_verified': not_verified,
+            'title': name,
         }
 
         return render(
-            request, 'application_windows/application.html', context=context
+            request, 'application_general/application.html', context=context
         )
 
     def index_android(request):
@@ -117,6 +129,9 @@ class WebViews(object):
 
     def application_android(request, pk):
         """ Returns the application for adndroid """
+        redirect_url = reverse('index-android')
+
+        name = request.GET.get('query')
         advertisement = AndroidApplication.objects.get(pk=pk)
 
         verified = 'Файл проверен администратором сайта Serphantom -  ✅'
@@ -132,15 +147,24 @@ class WebViews(object):
             'Программы, приложения и продукция для Windows. '
         )
 
+        if name:
+            advertisements = WindowsApplication.objects.filter(
+                name__icontains=name.strip()
+            )
+            return redirect(redirect_url)
+        else:
+            advertisements = WindowsApplication.objects.all()
+
         context = {
             'advertisement': advertisement,
             'meta': meta,
             'verified': verified,
             'not_verified': not_verified,
+            'title': name,
         }
 
         return render(
-            request, 'application_android/application.html', context=context
+            request, 'application_general/application.html', context=context
         )
 
     @login_required(login_url=reverse_lazy('welcome'))
