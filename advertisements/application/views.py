@@ -200,7 +200,7 @@ class WebViews(object):
             return redirect(redirect_url)
 
         return render(
-            request, 'application_windows/add-application.html', context=context
+            request, 'application_general/add-application.html', context=context
         )
 
     @login_required(login_url=reverse_lazy('welcome'))
@@ -236,5 +236,5 @@ class WebViews(object):
             return redirect(redirect_url)
 
         return render(
-            request, 'application_android/add-application.html', context=context
+            request, 'application_general/add-application.html', context=context
         )
