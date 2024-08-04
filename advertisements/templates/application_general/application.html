@@ -10,7 +10,7 @@
     {{ meta }}
 {% endblock %}
 
-{% block active_2 %}active{% endblock %}
+{% block active %}active{% endblock %}
 
 {% block content %}
 <div class="bg-black">
@@ -122,7 +122,7 @@
               <div class="col-auto">
                   <a href="{{ advertisement.file_main.url }}" download={{ advertisement.name }} type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_main }}</a>
                   {% if advertisement.file_additional %}
-                      <a href="{{ advertisement.file_additional.url }}" download={{ advertisement.name }} type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_additional }}</a>
+                      <a href="{{ advertisement.file_additional.url }}" download={{ advertisement.name }}type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Скачать {{ advertisement.name_file_additional }}</a>
                   {% endif %}
               </div>
               <p class="card-text"><small class="text-muted">Размещено: {{ advertisement.created_at|date:'d-m-Y H:i:s' }} </small></p>
