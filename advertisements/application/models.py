@@ -28,7 +28,7 @@ class WindowsApplication(models.Model):
         max_length=30,
     )
 
-    title = models.CharField(
+    title = models.TextField(
         verbose_name="Заголовок",
         max_length=100,
     )
@@ -252,7 +252,7 @@ class AndroidApplication(models.Model):
         max_length=30,
     )
 
-    title = models.CharField(
+    title = models.TextField(
         verbose_name="Заголовок",
         max_length=100,
     )
