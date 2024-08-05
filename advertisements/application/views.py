@@ -177,7 +177,7 @@ class WebViews(object):
 
         if request.user.username in advertisements.secrets.users or request.user.is_superuser:
 
-            if request.method == "POST":
+            if request.method == 'POST':
                 form = AdvertisementFormWindows(request.POST, request.FILES)
 
                 if form.is_valid():
@@ -185,7 +185,7 @@ class WebViews(object):
                     advertisement.user = request.user
                     advertisement.save()
 
-                    return redirect(reverse("index-windows"))
+                    return redirect(reverse('index-windows'))
 
             else:
                 form = AdvertisementFormWindows()
@@ -213,7 +213,7 @@ class WebViews(object):
 
         if request.user.username in advertisements.secrets.users or request.user.is_superuser:
 
-            if request.method == "POST":
+            if request.method == 'POST':
                 form = AdvertisementFormAndroid(request.POST, request.FILES)
 
                 if form.is_valid():
@@ -221,7 +221,7 @@ class WebViews(object):
                     advertisement.user = request.user
                     advertisement.save()
 
-                    return redirect(reverse("index-android"))
+                    return redirect(reverse('index-android'))
 
             else:
                 form = AdvertisementFormAndroid()
