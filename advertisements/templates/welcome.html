@@ -1,8 +1,8 @@
 {% load static %}
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Serphantom</title>
+        <title>{{ name_site }}</title>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,17 +24,17 @@
     <body>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="text-center">
-                <h1 class="display-1 fw-bold text-primary">SERPHANROM SPACE</h1>
-                <p class="fs-3 text-primary"> <span>Добро пожаловать!</span></p>
+                <h1 class="display-1 fw-bold text-primary">{{ title }}</h1>
+                <p class="fs-3 text-primary"> <span>{{ display }}</span></p>
                   <p class="lead text-primary">
-                    На данном сайте можете скачать интересующие Вас приложения.
+                    {{ text }}
                   </p>
 
-                    <a href="{% url 'index-windows' %}" class="btn btn-primary btn-outline-dark text-light">Windows</a>
-                    <a href="{% url 'index-android' %}" class="btn btn-primary btn-outline-dark text-light">Android</a>
-                    <a href="https://github.com/LebedevSergeyVach/SerphantomApplication" class="btn btn-primary btn-outline-dark text-light">GitHub</a>
+                    <a href="{% url 'index-windows' %}" class="btn btn-primary btn-outline-dark text-light">{{ button_Windows }}</a>
+                    <a href="{% url 'index-android' %}" class="btn btn-primary btn-outline-dark text-light">{{ button_Android }}</a>
+                    <a href="https://github.com/LebedevSergeyVach/SerphantomApplication" class="btn btn-primary btn-outline-dark text-light">{{ button_GitHub }}</a>
                     {% if user.is_superuser %}
-                        <a href="/admin" class="btn btn-primary btn-outline-dark text-light">Admin</a>
+                        <a href="/admin" class="btn btn-primary btn-outline-dark text-light">{{ button_admin }}</a>
                     {% endif %}
                 </div>
             </div>
