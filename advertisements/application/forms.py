@@ -106,20 +106,42 @@ class AdvertisementFormWindows(forms.ModelForm):
             ),
         }
 
+    def clean_name(self):
+        """ Clean the name from the forms dictionary """
+        return self.clean_value('name')
+
     def clean_title(self):
-        """Validate that the title is not empty and does not start with a question mark"""
-        name = self.cleaned_data.get('name')
-        title = self.cleaned_data.get('title')
+        """ Clean the title from the forms dictionary """
+        return self.clean_value('title')
 
-        if name.startswith('?'):
-            """ Validate that the title starts with a question mark """
-            raise forms.ValidationError("Title cannot start with a question mark")
+    def clean_short_description(self):
+        """ Clean the short_description from the forms dictionary """
+        return self.clean_value('short_description')
 
-        if title.startswith('?'):
-            """ Validate that the title ends with a question mark """
-            raise forms.ValidationError("Title cannot start with a question mark")
+    def clean_short_full_description(self):
+        """ Clean the full_description from the forms dictionary """
+        return self.clean_value('full_description')
 
-        return name
+    def clean_name_file_main(self):
+        """ Clean the file name from the files dictionary """
+        return self.clean_value('name_file_main')
+
+    def clean_value(self, field_name):
+        """Validate that the title is not empty and does not start with a prohibited character"""
+        value = self.cleaned_data.get(field_name)
+
+        prohibited_chars = [
+            '!', '?', '$', '&', '@', '#', '№', '%', '*', '^', '<', '>', '=', '+', '/', '|', '~', '-', '"', '{', '(', '['
+        ]
+
+        if any(value.startswith(char) for char in prohibited_chars):
+            """ The {field_name} field cannot start with the following characters: !, ?, $, &, @, #, №, %, *, ^ """
+
+            raise forms.ValidationError(
+                f'Поле {field_name} не может начинаться со следующих знаков: !, ?, $, &, @, #, №, %, *, ^ - и другие!'
+            )
+
+        return value
 
 
 class AdvertisementFormAndroid(forms.ModelForm):
@@ -224,17 +246,39 @@ class AdvertisementFormAndroid(forms.ModelForm):
             ),
         }
 
+    def clean_name(self):
+        """ Clean the name from the forms dictionary """
+        return self.clean_value('name')
+
     def clean_title(self):
-        """Validate that the title is not empty and does not start with a question mark"""
-        name = self.cleaned_data.get('name')
-        title = self.cleaned_data.get('title')
+        """ Clean the title from the forms dictionary """
+        return self.clean_value('title')
 
-        if name.startswith('?'):
-            """ Validate that the title starts with a question mark """
-            raise forms.ValidationError("Title cannot start with a question mark")
+    def clean_short_description(self):
+        """ Clean the short_description from the forms dictionary """
+        return self.clean_value('short_description')
 
-        if title.startswith('?'):
-            """ Validate that the title ends with a question mark """
-            raise forms.ValidationError("Title cannot start with a question mark")
+    def clean_short_full_description(self):
+        """ Clean the full_description from the forms dictionary """
+        return self.clean_value('full_description')
 
-        return name
+    def clean_name_file_main(self):
+        """ Clean the file name from the files dictionary """
+        return self.clean_value('name_file_main')
+
+    def clean_value(self, field_name):
+        """Validate that the title is not empty and does not start with a prohibited character"""
+        value = self.cleaned_data.get(field_name)
+
+        prohibited_chars = [
+            '!', '?', '$', '&', '@', '#', '№', '%', '*', '^', '<', '>', '=', '+', '/', '|', '~', '-', '"', '{', '(', '['
+        ]
+
+        if any(value.startswith(char) for char in prohibited_chars):
+            """ The {field_name} field cannot start with the following characters: !, ?, $, &, @, #, №, %, *, ^ """
+
+            raise forms.ValidationError(
+                f'Поле {field_name} не может начинаться со следующих знаков: !, ?, $, &, @, #, №, %, *, ^ - и другие!'
+            )
+
+        return value
