@@ -127,7 +127,7 @@ class AdvertisementFormWindows(forms.ModelForm):
         return self.clean_value('name_file_main')
 
     def clean_value(self, field_name):
-        """Validate that the title is not empty and does not start with a prohibited character"""
+        """ Validate that the title is not empty and does not start with a prohibited character """
         value = self.cleaned_data.get(field_name)
 
         prohibited_chars = [
@@ -267,7 +267,7 @@ class AdvertisementFormAndroid(forms.ModelForm):
         return self.clean_value('name_file_main')
 
     def clean_value(self, field_name):
-        """Validate that the title is not empty and does not start with a prohibited character"""
+        """ Validate that the title is not empty and does not start with a prohibited character """
         value = self.cleaned_data.get(field_name)
 
         prohibited_chars = [
