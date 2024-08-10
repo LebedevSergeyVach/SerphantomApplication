@@ -2,7 +2,7 @@ version: '3'
 
 services:
   frontend:
-    hostname: serphantom.space
+    hostname: frontend
     env_file:
       - ./.env
     build:
