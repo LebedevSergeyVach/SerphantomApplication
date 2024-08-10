@@ -141,11 +141,37 @@
                   {% else %}
                   {% endif %}
                   {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
-                      <form action="" method="post">
-                          {% csrf_token %}
-                          <input type="hidden" name="delete" value="true">
-                          <button type="submit" class="btn btn-danger mb-3 btn-outline-dark text-light">Удалить {{ advertisement.name }}</button>
-                      </form>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger mb-3 btn-outline-dark text-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                      Удалить {{ advertisement.name }}
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content bg-black text-white bg-gradient">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{ advertisement.name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <h3>Подтверждение удаления программы!</h3>
+                                <p></p>
+                              <span>Удалить программу {{ advertisement.title }} ?</span>
+                          </div>
+                          <div class="modal-footer">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary mb-3 btn-outline-dark text-light">Закрыть</button>
+                            </form>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                    <input type="hidden" name="delete" value="true">
+                                    <button type="submit" class="btn btn-danger mb-3 btn-outline-dark text-light">Удалить {{ advertisement.name }}</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   {% else %}
                   {% endif %}
               </div>
