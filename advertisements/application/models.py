@@ -269,45 +269,45 @@ class AndroidApplication(models.Model):
 
     image_application_main = models.ImageField(
         verbose_name='Изображение',
-        upload_to='application_windows/image',
+        upload_to='application_android/image',
     )
 
     image_application_2 = models.ImageField(
         verbose_name='Дополнительное изображение',
-        upload_to='application_windows/image',
+        upload_to='application_android/image',
         null=True,
         blank=True,
     )
 
     image_application_3 = models.ImageField(
         verbose_name='Дополнительное изображение',
-        upload_to='application_windows/image',
+        upload_to='application_android/image',
         null=True,
         blank=True,
     )
 
     image_application_4 = models.ImageField(
         verbose_name='Дополнительное изображение',
-        upload_to='application_windows/image',
+        upload_to='application_android/image',
         null=True,
         blank=True,
     )
 
     image_application_5 = models.ImageField(
         verbose_name='Дополнительное изображение',
-        upload_to='application_windows/image',
+        upload_to='application_android/image',
         null=True,
         blank=True,
     )
 
     file_main = models.FileField(
         verbose_name='Главный файл',
-        upload_to='application_windows/files',
+        upload_to='application_android/files',
     )
 
     file_additional = models.FileField(
         verbose_name='Дополнительный файл',
-        upload_to='application_windows/files',
+        upload_to='application_android/files',
         null=True,
         blank=True,
     )
