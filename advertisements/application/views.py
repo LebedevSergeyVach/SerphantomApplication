@@ -81,15 +81,18 @@ class WebViews(object):
         else:
             advertisements = WindowsApplication.objects.all()
 
-        if request.method == 'POST' and 'delete' in request.POST:
-            advertisement.delete()
-            return redirect(redirect_url)
+        if request.method == 'POST':
+            if 'delete' in request.POST:
+                advertisement.delete()
+                return redirect(redirect_url)
 
-        if request.method == 'POST' and 'verified True' in request.POST:
-            advertisement.verified = True
+            if 'verified True' in request.POST:
+                advertisement.verified = True
+                advertisement.save()
 
-        if request.method == 'POST' and 'verified False' in request.POST:
-            advertisement.verified = False
+            if 'verified False' in request.POST:
+                advertisement.verified = False
+                advertisement.save()
 
         context = {
             'advertisement': advertisement,
@@ -166,15 +169,18 @@ class WebViews(object):
         else:
             advertisements = WindowsApplication.objects.all()
 
-        if request.method == 'POST' and 'delete' in request.POST:
-            advertisement.delete()
-            return redirect(redirect_url)
+        if request.method == 'POST':
+            if 'delete' in request.POST:
+                advertisement.delete()
+                return redirect(redirect_url)
 
-        if request.method == 'POST' and 'verified True' in request.POST:
-            advertisement.verified = True
+            if 'verified True' in request.POST:
+                advertisement.verified = True
+                advertisement.save()
 
-        if request.method == 'POST' and 'verified False' in request.POST:
-            advertisement.verified = False
+            if 'verified False' in request.POST:
+                advertisement.verified = False
+                advertisement.save()
 
         context = {
             'advertisement': advertisement,
