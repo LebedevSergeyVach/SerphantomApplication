@@ -1,6 +1,6 @@
 """ Views the list """
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth import get_user_model
@@ -57,7 +57,8 @@ class WebViews(object):
         redirect_url = reverse('index-windows')
 
         name = request.GET.get('query')
-        advertisement = WindowsApplication.objects.get(pk=pk)
+        # advertisement = WindowsApplication.objects.get(pk=pk)
+        advertisement = get_object_or_404(WindowsApplication, pk=pk)
 
         verified = 'Файл проверен администратором сайта Serphantom -  ✅'
         not_verified = 'Файл не проверен администратором сайта Serphantom - ❌'
@@ -79,6 +80,16 @@ class WebViews(object):
             return redirect(redirect_url)
         else:
             advertisements = WindowsApplication.objects.all()
+
+        if request.method == 'POST' and 'delete' in request.POST:
+            advertisement.delete()
+            return redirect(redirect_url)
+
+        if request.method == 'POST' and 'verified True' in request.POST:
+            advertisement.verified = True
+
+        if request.method == 'POST' and 'verified False' in request.POST:
+            advertisement.verified = False
 
         context = {
             'advertisement': advertisement,
@@ -154,6 +165,16 @@ class WebViews(object):
             return redirect(redirect_url)
         else:
             advertisements = WindowsApplication.objects.all()
+
+        if request.method == 'POST' and 'delete' in request.POST:
+            advertisement.delete()
+            return redirect(redirect_url)
+
+        if request.method == 'POST' and 'verified True' in request.POST:
+            advertisement.verified = True
+
+        if request.method == 'POST' and 'verified False' in request.POST:
+            advertisement.verified = False
 
         context = {
             'advertisement': advertisement,
