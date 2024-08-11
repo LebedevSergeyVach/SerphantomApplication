@@ -15,8 +15,9 @@ class WindowsApplicationAdmin(admin.ModelAdmin):
         'id', 'name',
         'show_image_application_main', 'show_image_application_2', 'show_image_application_3',
         'name_file_main',
-        'created_date',
+        'created_date', 'updated_date',
         'show_verified',
+        'number_views', 'number_thanks',
     ]
 
     list_filter = [
@@ -82,8 +83,9 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
         'id', 'name',
         'show_image_application_main', 'show_image_application_2', 'show_image_application_3',
         'name_file_main',
-        'created_date',
+        'created_date', 'updated_date',
         'show_verified',
+        'number_views', 'number_thanks',
     ]
 
     list_filter = [
