@@ -17,6 +17,7 @@ import advertisements
 class WebViews(object):
     """ Web views for the app """
 
+    @login_required(login_url=reverse_lazy('login'))
     def index_windows(request):
         """ Returns the list of windows application """
         name = request.GET.get('query')
@@ -52,6 +53,7 @@ class WebViews(object):
             request, 'application_windows/index.html', context=context
         )
 
+    @login_required(login_url=reverse_lazy('login'))
     def application_windows(request, pk):
         """ Returns the application for windows """
         redirect_url = reverse('index-windows')
@@ -134,6 +136,7 @@ class WebViews(object):
             request, 'application_general/application.html', context=context
         )
 
+    @login_required(login_url=reverse_lazy('login'))
     def index_android(request):
         """ Returns the list of android application """
         name = request.GET.get('query')
@@ -169,6 +172,7 @@ class WebViews(object):
             request, 'application_android/index.html', context=context
         )
 
+    @login_required(login_url=reverse_lazy('login'))
     def application_android(request, pk):
         """ Returns the application for adndroid """
         redirect_url = reverse('index-android')
