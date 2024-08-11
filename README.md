@@ -3,7 +3,7 @@
 
 The project is written on the [Django](https://www.djangoproject.com) framework.
 The backend is written in [python](https://www.python.org).
-Frontend is written using [bootstrap](https://getbootstrap.com).
+Frontend is written using [bootstrap](https://getbootstrap.com) framework.
 The Docker container of the website is deployed on its own home server on [Debian](https://www.debian.org).
 
 This site hosts programs and applications for Windows and Android. 
@@ -87,7 +87,7 @@ ___
 
 Проект написан на фреймворке [Django](https://www.djangoproject.com).
 Бэкенд написан на [Python](https://www.python.org).  
-Фронтенд разработан с использованием [Bootstrap](https://getbootstrap.com).
+Фронтенд разработан с использованием фреймворка [Bootstrap](https://getbootstrap.com).
 Docker контейнер веб-сайта развертывается на собственном домашнем сервере на [Debian](https://www.debian.org).
 
 На данном сайте размещаются программы и приложения для Windows и Android. 
