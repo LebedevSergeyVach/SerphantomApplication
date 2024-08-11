@@ -105,32 +105,70 @@ class WindowsApplication(models.Model):
         default=False,
     )
 
+    number_views = models.IntegerField(
+        verbose_name='Просмотры',
+        default=0,
+    )
+
+    number_thanks = models.IntegerField(
+        verbose_name='Спасибо',
+        default=0,
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    # @admin.display(description='Дата создания')
+    # def created_date(self):
+    #     """Show the date of the creation"""
+    #     if self.created_at.date() == timezone.now().date():
+    #         created_time = self.created_at.time().strftime("%H:%M:%S")
+    #
+    #         return format_html(
+    #             '<span style="color: blue; font-weight: bold;">Сегодня в {}</span>', created_time
+    #         )
+    #
+    #     return self.created_at.strftime('%d.%m.%Y в %H:%M:%S')
+
     @admin.display(description='Дата создания')
     def created_date(self):
-        """Show the date of the creation"""
-        if self.created_at.date() == timezone.now().date():
-            created_time = self.created_at.time().strftime("%H:%M:%S")
+        """Show the date of the creation LOCAL"""
+        local_created_at = timezone.localtime(self.created_at)
+
+        if local_created_at.date() == timezone.now().date():
+            created_time = local_created_at.time().strftime('%H:%M:%S')
 
             return format_html(
-                '<span style="color: blue; font-weight: bold;">Сегодня в {}</span>', created_time
+                '<span style="color: blue; font-weight: bold">Сегодня в {}</span>', created_time
             )
 
-        return self.created_at.strftime('%d.%m.%Y в %H:%M:%S')
+        return local_created_at.strftime('%d.%m.%Y в %H:%M:%S')
+
+    # @admin.display(description='Дата изменения')
+    # def updated_date(self):
+    #     """Show the date of the update"""
+    #     if self.updated_at.date() == timezone.now().date():
+    #         created_time = self.updated_at.time().strftime('%H:%M:%S')
+    #
+    #         return format_html(
+    #             '<span style="color: green; font-weight: bold">Сегодня в {}</span>', created_time
+    #         )
+    #
+    #     return self.updated_at.strftime(f'%d.%m.%Y в %H:%M:%S')
 
     @admin.display(description='Дата изменения')
     def updated_date(self):
-        """Show the date of the update"""
-        if self.updated_at.date() == timezone.now().date():
-            created_time = self.updated_at.time().strftime('%H:%M:%S')
+        """Show the date of the update LOCAL"""
+        local_updated_at = timezone.localtime(self.updated_at)
+
+        if local_updated_at.date() == timezone.now().date():
+            created_time = local_updated_at.time().strftime('%H:%M:%S')
 
             return format_html(
                 '<span style="color: green; font-weight: bold">Сегодня в {}</span>', created_time
             )
 
-        return self.updated_at.strftime(f'%d.%m.%Y в %H:%M:%S')
+        return local_updated_at.strftime('%d.%m.%Y в %H:%M:%S')
 
     @admin.display(description='Пользователь')
     def show_user(self):
@@ -329,32 +367,46 @@ class AndroidApplication(models.Model):
         default=False,
     )
 
+    number_views = models.IntegerField(
+        verbose_name='Просмотры',
+        default=0,
+    )
+
+    number_thanks = models.IntegerField(
+        verbose_name='Спасибо',
+        default=0,
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     @admin.display(description='Дата создания')
     def created_date(self):
-        """Show the date of the creation"""
-        if self.created_at.date() == timezone.now().date():
-            created_time = self.created_at.time().strftime("%H:%M:%S")
+        """Show the date of the creation LOCAL"""
+        local_created_at = timezone.localtime(self.created_at)
+
+        if local_created_at.date() == timezone.now().date():
+            created_time = local_created_at.time().strftime('%H:%M:%S')
 
             return format_html(
-                '<span style="color: blue; font-weight: bold;">Сегодня в {}</span>', created_time
+                '<span style="color: blue; font-weight: bold">Сегодня в {}</span>', created_time
             )
 
-        return self.created_at.strftime('%d.%m.%Y в %H:%M:%S')
+        return local_created_at.strftime('%d.%m.%Y в %H:%M:%S')
 
     @admin.display(description='Дата изменения')
     def updated_date(self):
-        """Show the date of the update"""
-        if self.updated_at.date() == timezone.now().date():
-            created_time = self.updated_at.time().strftime('%H:%M:%S')
+        """Show the date of the update LOCAL"""
+        local_updated_at = timezone.localtime(self.updated_at)
+
+        if local_updated_at.date() == timezone.now().date():
+            created_time = local_updated_at.time().strftime('%H:%M:%S')
 
             return format_html(
                 '<span style="color: green; font-weight: bold">Сегодня в {}</span>', created_time
             )
 
-        return self.updated_at.strftime(f'%d.%m.%Y в %H:%M:%S')
+        return local_updated_at.strftime('%d.%m.%Y в %H:%M:%S')
 
     @admin.display(description='Пользователь')
     def show_user(self):
