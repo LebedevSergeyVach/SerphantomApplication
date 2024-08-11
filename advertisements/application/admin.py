@@ -25,7 +25,7 @@ class WindowsApplicationAdmin(admin.ModelAdmin):
     ]
 
     actions = [
-        'make_verified_as_true', 'make_verified_as_false',
+        'make_verified_as_true', 'make_verified_as_false', 'make_reset'
     ]
 
     fieldsets = (
@@ -51,9 +51,13 @@ class WindowsApplicationAdmin(admin.ModelAdmin):
         updated = queryset.update(verified=True)
 
         if updated:
-            self.message_user(request, f'{updated} Файл проверен администратором сайта.', messages.SUCCESS)
+            self.message_user(
+                request, f'{updated} Файл проверен администратором сайта.', messages.SUCCESS
+            )
         else:
-            self.message_user(request, 'Действие не было выполнено.', messages.WARNING)
+            self.message_user(
+                request, 'Действие не было выполнено.', messages.WARNING
+            )
 
     @admin.action(description='Файл не проверен администратором сайта')
     def make_verified_as_false(self, request, queryset):
@@ -61,9 +65,29 @@ class WindowsApplicationAdmin(admin.ModelAdmin):
         updated = queryset.update(verified=False)
 
         if updated:
-            self.message_user(request, f'{updated} Файл не проверен администратором сайта.', messages.SUCCESS)
+            self.message_user(
+                request, f'{updated} Файл не проверен администратором сайта.', messages.SUCCESS
+            )
         else:
-            self.message_user(request, 'Действие не было выполнено.', messages.WARNING)
+            self.message_user(
+                request, 'Действие не было выполнено.', messages.WARNING
+            )
+
+    @admin.action(description='Сброс просмотров и оцениваий')
+    def make_reset(self, request, queryset):
+        updated_views = queryset.update(number_views=0)
+        updated_thanks = queryset.update(number_thanks=0)
+
+        if updated_views or updated_thanks:
+            self.message_user(
+                request,
+                f'Сброс просмотров: {updated_views} и сброс оцениваний: {updated_thanks} - прошли успешно.',
+                messages.SUCCESS
+            )
+        else:
+            self.message_user(
+                request, 'Cброс просмотров и оцениваний не произошел.', messages.WARNING
+            )
 
     # Данный говнокодище нахилдится в разработке...
     @admin.action(description='Make name application')
@@ -93,7 +117,7 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
     ]
 
     actions = [
-        'make_verified_as_true', 'make_verified_as_false',
+        'make_verified_as_true', 'make_verified_as_false', 'make_reset'
     ]
 
     fieldsets = (
@@ -119,9 +143,13 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
         updated = queryset.update(verified=True)
 
         if updated:
-            self.message_user(request, f'{updated} Файл проверен администратором сайта.', messages.SUCCESS)
+            self.message_user(
+                request, f'{updated} Файл проверен администратором сайта.', messages.SUCCESS
+            )
         else:
-            self.message_user(request, 'Действие не было выполнено.', messages.WARNING)
+            self.message_user(
+                request, 'Действие не было выполнено.', messages.WARNING
+            )
 
     @admin.action(description='Файл не проверен администратором сайта')
     def make_verified_as_false(self, request, queryset):
@@ -129,9 +157,29 @@ class AndroidApplicationAdmin(admin.ModelAdmin):
         updated = queryset.update(verified=False)
 
         if updated:
-            self.message_user(request, f'{updated} Файл не проверен администратором сайта.', messages.SUCCESS)
+            self.message_user(
+                request, f'{updated} Файл не проверен администратором сайта.', messages.SUCCESS
+            )
         else:
-            self.message_user(request, 'Действие не было выполнено.', messages.WARNING)
+            self.message_user(
+                request, 'Действие не было выполнено.', messages.WARNING
+            )
+
+    @admin.action(description='Сброс просмотров и оцениваий')
+    def make_reset(self, request, queryset):
+        updated_views = queryset.update(number_views=0)
+        updated_thanks = queryset.update(number_thanks=0)
+
+        if updated_views or updated_thanks:
+            self.message_user(
+                request,
+                f'Сброс просмотров: {updated_views} и сброс оцениваний: {updated_thanks} - прошли успешно.',
+                messages.SUCCESS
+            )
+        else:
+            self.message_user(
+                request, 'Cброс просмотров и оцениваний не произошел.', messages.WARNING
+            )
 
 
 """ Registration methods """
