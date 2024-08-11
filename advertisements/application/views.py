@@ -60,8 +60,17 @@ class WebViews(object):
         # advertisement = WindowsApplication.objects.get(pk=pk)
         advertisement = get_object_or_404(WindowsApplication, pk=pk)
 
+        views_key = f'views_{advertisement.pk}'
+        if views_key not in request.session:
+            advertisement.number_views += 1
+            advertisement.save()
+            request.session[views_key] = True
+
         verified = 'Файл проверен администратором сайта Serphantom -  ✅'
         not_verified = 'Файл не проверен администратором сайта Serphantom - ❌'
+
+        confirmation_deletion = 'Подтверждение удаления программы!'
+        deleted = 'Удалить программу'
 
         meta = (
             'Сайт для пользователей Windows и Android. '
@@ -88,11 +97,28 @@ class WebViews(object):
 
             if 'verified True' in request.POST:
                 advertisement.verified = True
+                advertisement.updated_date()
                 advertisement.save()
 
             if 'verified False' in request.POST:
                 advertisement.verified = False
+                advertisement.updated_date()
                 advertisement.save()
+
+            if 'thanks' in request.POST:
+                thanks_key = f'thanks_{advertisement.pk}'
+                if thanks_key not in request.session:
+                    advertisement.number_thanks += 1
+                    advertisement.save()
+                    request.session[thanks_key] = True
+
+            if 'reset' in request.POST:
+                advertisement.number_views = 0
+                advertisement.number_thanks = 0
+                advertisement.save()
+
+                if not request.user.is_superuser:
+                    request.session.flush()
 
         context = {
             'advertisement': advertisement,
@@ -100,6 +126,8 @@ class WebViews(object):
             'verified': verified,
             'not_verified': not_verified,
             'title': name,
+            'confirmation_deletion': confirmation_deletion,
+            'deleted': deleted,
         }
 
         return render(
@@ -148,8 +176,17 @@ class WebViews(object):
         name = request.GET.get('query')
         advertisement = AndroidApplication.objects.get(pk=pk)
 
+        views_key = f'views_{advertisement.pk}'
+        if views_key not in request.session:
+            advertisement.number_views += 1
+            advertisement.save()
+            request.session[views_key] = True
+
         verified = 'Файл проверен администратором сайта Serphantom -  ✅'
         not_verified = 'Файл не проверен администратором сайта Serphantom - ❌'
+
+        confirmation_deletion = 'Подтверждение удаления приложения!'
+        deleted = 'Удалить приложение'
 
         meta = (
             'Сайт для пользователей Windows и Android. '
@@ -176,11 +213,28 @@ class WebViews(object):
 
             if 'verified True' in request.POST:
                 advertisement.verified = True
+                advertisement.updated_date()
                 advertisement.save()
 
             if 'verified False' in request.POST:
                 advertisement.verified = False
+                advertisement.updated_date()
                 advertisement.save()
+
+            if 'thanks' in request.POST:
+                thanks_key = f'thanks_{advertisement.pk}'
+                if thanks_key not in request.session:
+                    advertisement.number_thanks += 1
+                    advertisement.save()
+                    request.session[thanks_key] = True
+
+            if 'reset' in request.POST:
+                advertisement.number_views = 0
+                advertisement.number_thanks = 0
+                advertisement.save()
+
+                if not request.user.is_superuser:
+                    request.session.flush()
 
         context = {
             'advertisement': advertisement,
@@ -188,6 +242,8 @@ class WebViews(object):
             'verified': verified,
             'not_verified': not_verified,
             'title': name,
+            'confirmation_deletion': confirmation_deletion,
+            'deleted': deleted,
         }
 
         return render(
