@@ -1,0 +1,70 @@
+{% extends 'base_user.html' %}
+{% load static %}
+
+{% block title %}
+    {{ name_site }}
+{% endblock %}
+
+{% block active %}active{% endblock %}
+
+{% block content %}
+    <div style="margin: 50px;"></div>
+        <div class="container overflow-hidden text-center">
+            <div class="d-grid gap-3 mx-auto">
+                  <div class="display-4">
+                    <span class="badge bg-primary">{{ name_site }}</span>
+                  </div>
+            </div>
+        </div>
+    <div style="margin: 30px;"></div>
+
+    <form method="post">{% csrf_token %}
+
+        <div class="container bg-black d-flex justify-content-center align-items-center text-light mb-3">
+            <div class="col-md-4">
+                <label for="username" class="text-primary col-form-label col-sm-4">{{ usr }}</label>
+                <input id="username" name="username" type="text" placeholder="Введите username" class="form-control form-control-lg bg-dark text-light btn-outline-primary">
+            </div>
+        </div>
+
+        <div class="container bg-black d-flex justify-content-center align-items-center text-light mb-3">
+            <div class="col-md-4">
+                <label for="password" class="text-primary col-form-label col-sm-4">{{ passw }}</label>
+                <input id="username" name="password" type="password" placeholder="Введите пароль" class="form-control form-control-lg bg-dark text-light btn-outline-primary">
+            </div>
+        </div>
+
+        <div style="margin: 30px;"></div>
+        <div class="mb-3">
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-outline-dark text-light">{{ button_login }}</button>
+            </div>
+        </div>
+        </form>
+
+         {% if error %}z
+             <div class="container overflow-hidden text-center display-7">
+                 <div class="badge bg-danger" style="margin: 10px">
+                    {{ error }}
+             </div>
+         </div>
+    {% endif %}
+
+    <div style="margin: 30px;"></div>
+    <div class="container overflow-hidden text-center">
+        <div class="d-grid gap-3 mx-auto">
+              <div class="display-6">
+                <span class="badge bg-primary">{{ no_account }}</span>
+              </div>
+        </div>
+    </div>
+
+    <div style="margin: 30px;"></div>
+    <div class="mb-3">
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'register' %}" type="submit" class="btn btn-primary btn-outline-dark text-light">{{ button_register }}</a>
+        </div>
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}
