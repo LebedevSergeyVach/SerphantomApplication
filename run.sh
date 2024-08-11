@@ -25,8 +25,8 @@ elif [[ "$1" == "-mak" || "$1" == "--makemigrations" ]]; then
     echo "Makemigrations from models database..."
     poetry run python advertisements/manage.py makemigrations
 
-# Проверяем, передан ли флаг -c или --collectstatic
-elif [[ "$1" == "-c" || "$1" == "--collectstatic" ]]; then
+# Проверяем, передан ли флаг -coll или --collectstatic
+elif [[ "$1" == "-coll" || "$1" == "--collectstatic" ]]; then
     # Переходим в директорию второго проекта
     # cd ~/PycharmProjects/SerphantomApplication/ || exit
     # Запускаем сервер с помощью poetry
@@ -41,6 +41,11 @@ elif [[ "$1" == "-a" || "$1" == "--admin" ]]; then
     echo "Creating super user server on fraimework Django..."
     poetry run python advertisements/manage.py createsuperuser
 
+# Проверяем, передан ли флаг -c или --cash
+elif [[ "$1" == "-c" || "$1" == "--cash" ]]; then
+  echo "The docker cache is being cleared..."
+  sudo docker container prune && sudo docker builder prune && sudo docker image prune -a -f
+
 # Если флаг не передан, выводим сообщение об ошибке
 else
     # Если флаг не передан или не распознан, выводим сообщение об ошибке
@@ -51,8 +56,9 @@ else
   [ -r | --runserver ]         ->  запуск локального сервера
   [ -mig | --migrate ]         ->  запуск миграции базы данных и проекта
   [ -mak | --makemigrations ]  ->  подготовка к запуску миграций базы данных и проекта
-  [ -c | --collectstatic ]     ->  сбор статических файлов в дирекорию staticfiles
+  [ -coll | --collectstatic ]  ->  сбор статических файлов в дирекорию staticfiles
   [ -a | --admin ]             ->  создание суперпользователя в базе данных фреймворка
+  [ -c | --cash]               -> запуск очистки кеша из docker builder, container и image
 
   Пример команды запуска bash скрипта: ./run.sh -r или ./run.sh -runserver"
     exit 1
