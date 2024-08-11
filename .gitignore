@@ -19,6 +19,7 @@ advertisements/application_windows/__pycache__/
 # Migrate
 advertisements/application/migrations
 advertisements/main/migrations
+advertisements/user/migrations
 
 
 # Database
