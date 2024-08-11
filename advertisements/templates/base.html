@@ -50,10 +50,11 @@
     </div>
     <div class="row mb-auto text-light">
         <div class="row mb-1">
-            <div class="row-cols-1">
-                <a class="nav-link" aria-current="page" href="{% url 'welcome' %}">
-                    <button type="submit" class="btn btn-primary btn-outline-dark text-light">Go Home</button>
-                </a>
+            <div class="">
+                <p></p>
+                    <a href="{% url 'welcome' %}" type="submit" class="btn btn-primary btn-outline-dark text-light">Перейти на главную</a>
+                    <a href="{% url 'logout' %}" type="submit" class="btn btn-primary btn-outline-dark text-light">Выйтииз аккаунта</a>
+                <p></p>
                 {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
                     <a class="nav-link" aria-current="page" href="/admin">
                         <button type="submit" class="btn btn-primary btn-outline-dark text-light">ADMIN</button>
@@ -72,7 +73,7 @@
       <p></p>
     <div class="dropdown mt-1">
       <button class="btn btn-primary btn-outline-dark text-light dropdown-toggle" aria-current="page" type="button" data-bs-toggle="dropdown">
-        References to the project
+        Все ссылки на проект
       </button>
       <ul class="dropdown-menu bg-dark text-light btn-outline-dark dropdown-menu-dark" aria-current="dropdownId">
 {#        <a class="dropdown-item text-light btn-outline-primary" href="https://t.me/LebedevSergeyVach">Telegram</a>#}
@@ -97,31 +98,39 @@
         <span style="font-weight: bold;">Android</span>
     </a>
   </li>
-{#    {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}#}
-{#  <li class="nav-item bg-black">#}
-{#    <a class="nav-link {% block active_3 %}{% endblock %}" href="{% url 'add-windows-post' %}">#}
-{#        <span style="font-weight: bold;">Add Windows</span>#}
-{#    </a>#}
-{#  </li>#}
-{#    {% else %}#}
-{#    {% endif %}#}
-{#    {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}#}
-{#  <li class="nav-item bg-black">#}
-{#    <a class="nav-link {% block active_4 %}{% endblock %}" href="{% url 'add-android-post' %}">#}
-{#        <span style="font-weight: bold;">Add Android</span>#}
-{#    </a>#}
-{#  </li>#}
-{#    {% else %}#}
-{#    {% endif %}#}
 </ul>
-
 
 {% block content %}
 {% endblock %}
-
-<footer style="padding: 40px;" class="bg-primary">
-  <nav class="navbar navbar-expand-sm navbar-dark">
-
+    <footer style="padding: 40px;" class="bg-primary">
+        <nav class="navbar navbar-expand-sm navbar-dark">
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Профиль
+            </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-black bg-gradient text-light">
+                <div class="modal-header">
+                    <h3 class="modal-title text-primary" id="exampleModalLabel">Аккаунт</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Пользователь: {{ user.username }}</h4>
+                        <p></p>
+                    <strong>Почта: {{ user.email }}</strong>
+                        <p></p>
+                    <span>Дата регистрации: {{ user.date_joined|date:'d-m-Y H:i:s' }}</span>
+                        <p></p>
+                    <span>Последний вход: {{ user.last_login|date:'d-m-Y H:i:s' }}</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-outline-dark text-light" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Информация о сайте
     </button>
