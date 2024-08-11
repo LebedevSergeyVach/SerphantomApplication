@@ -55,7 +55,9 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'application.apps.AppAdvertisementsConfig',
-    'main'
+
+    'main',
+    'user',
 ]
 
 MIDDLEWARE = [
