@@ -155,7 +155,7 @@
                       <div class="modal-dialog">
                         <div class="modal-content bg-black text-white bg-gradient">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">{{ advertisement.name }}</h5>
+                            <h5 class="modal-title text-primary fw-bold" id="staticBackdropLabel">{{ advertisement.name }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
@@ -176,7 +176,7 @@
                             <form action="" method="post">
                                 {% csrf_token %}
                                     <input type="hidden" name="delete" value="true">
-                                    <button type="submit" class="btn btn-danger btn-outline-dark text-light">Удалить {{ advertisement.name }}</button>
+                                    <button type="submit" class="btn btn-danger btn-outline-dark text-light">Удалить</button>
                             </form>
                           </div>
                         </div>
