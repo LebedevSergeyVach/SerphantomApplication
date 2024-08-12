@@ -34,8 +34,8 @@
                         <a href="{% url 'index-android' %}" class="btn btn-primary btn-outline-dark text-light">{{ button_Android }}</a>
                     {% endif %}
                     {% if not user.is_authenticated %}
-                        <a href="{% url 'login' %}" class="btn btn-primary btn-outline-dark text-light">Вход</a>
-                        <a href="{% url 'register' %}" class="btn btn-primary btn-outline-dark text-light">Регистрация</a>
+                        <a href="{% url 'login' %}" class="btn btn-primary btn-outline-dark text-light">{{ button_login }}</a>
+                        <a href="{% url 'register' %}" class="btn btn-primary btn-outline-dark text-light">{{ button_register }}</a>
                     {% endif %}
                         <a href="https://github.com/LebedevSergeyVach/SerphantomApplication" class="btn btn-primary btn-outline-dark text-light">{{ button_GitHub }}</a>
                     {% if user.is_superuser %}
