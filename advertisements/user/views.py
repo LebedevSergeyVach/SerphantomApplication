@@ -86,7 +86,7 @@ class WebView(object):
 
     def register_view(request):
         """View function for register page"""
-        name_site = 'Вход в аккаунт'
+        name_site = 'Регистрация аккаунта'
         information = 'Необходимо для скачивания программ и приложений на сайте'
 
         an_account = 'Есть аккаунта? Войдите!'
