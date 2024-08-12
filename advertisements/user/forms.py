@@ -20,16 +20,6 @@ class UserRegistrationForm(UserCreationForm):
         )
     )
 
-    phone_number = forms.CharField(
-        required=False,
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control form-control-lg bg-dark text-light btn-outline-primary",
-                "placeholder": "Введите номер телефона (необезательно)"
-            }
-        )
-    )
-
     def __init__(self, *args, **kwargs):
         """Create a new"""
         super().__init__(*args, **kwargs)
@@ -42,10 +32,6 @@ class UserRegistrationForm(UserCreationForm):
             'form-control form-control-lg bg-dark text-light btn-outline-primary'
         self.fields['email'].widget.attrs['placeholder'] = \
             'Введите почту'
-        self.fields['phone_number'].widget.attrs['class'] = \
-            'form-control form-control-lg bg-dark text-light btn-outline-primary'
-        self.fields['phone_number'].widget.attrs['placeholder'] = \
-            'Введите номер телефона'
         self.fields['password1'].widget.attrs['class'] = \
             'form-control form-control-lg bg-dark text-light btn-outline-primary'
         self.fields['password1'].widget.attrs['placeholder'] = \
