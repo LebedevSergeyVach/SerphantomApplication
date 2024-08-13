@@ -144,6 +144,7 @@ class WebViews(object):
 
     @login_required(login_url=reverse_lazy('login'))
     def index_android(request):
+        """ Returns the list of android application """
         get_info_user(request)
 
         """ Returns the list of android application """
@@ -182,6 +183,7 @@ class WebViews(object):
 
     @login_required(login_url=reverse_lazy('login'))
     def application_android(request, pk):
+        """ Returns the application for android """
         get_info_user(request)
 
         """ Returns the application for adndroid """

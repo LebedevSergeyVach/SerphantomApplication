@@ -105,7 +105,7 @@ class WebView(object):
         get_info_user(request)
         divace = get_info_divace(request)
 
-        if divace == 'desktop':
+        if divace == 'mobile':
             information = 'Необходимо для скачивания программ и приложений'
         else:
             information = 'Необходимо для скачивания программ и приложений на сайте'
