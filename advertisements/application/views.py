@@ -11,6 +11,8 @@ from django.contrib.auth.models import User
 from .models import WindowsApplication, AndroidApplication
 from .forms import AdvertisementFormWindows, AdvertisementFormAndroid
 
+from .device import get_info_user
+
 import advertisements
 
 
@@ -20,6 +22,8 @@ class WebViews(object):
     @login_required(login_url=reverse_lazy('login'))
     def index_windows(request):
         """ Returns the list of windows application """
+        get_info_user(request)
+
         name = request.GET.get('query')
 
         description = 'Продукция для Windows'
@@ -56,6 +60,8 @@ class WebViews(object):
     @login_required(login_url=reverse_lazy('login'))
     def application_windows(request, pk):
         """ Returns the application for windows """
+        get_info_user(request)
+
         redirect_url = reverse('index-windows')
 
         name = request.GET.get('query')
@@ -138,6 +144,8 @@ class WebViews(object):
 
     @login_required(login_url=reverse_lazy('login'))
     def index_android(request):
+        get_info_user(request)
+
         """ Returns the list of android application """
         name = request.GET.get('query')
 
@@ -174,6 +182,8 @@ class WebViews(object):
 
     @login_required(login_url=reverse_lazy('login'))
     def application_android(request, pk):
+        get_info_user(request)
+
         """ Returns the application for adndroid """
         redirect_url = reverse('index-android')
 
@@ -257,6 +267,8 @@ class WebViews(object):
     @login_required(login_url=reverse_lazy('welcome'))
     def add_windows_post(request):
         """ Returns the add application for windows """
+        get_info_user(request)
+
         redirect_url = reverse('404')
 
         description = 'Продукция для Windows'
@@ -293,6 +305,8 @@ class WebViews(object):
     @login_required(login_url=reverse_lazy('welcome'))
     def add_android_post(request):
         """ Returns the add application for android """
+        get_info_user(request)
+
         redirect_url = reverse('404')
 
         description = 'Приложения для Android'

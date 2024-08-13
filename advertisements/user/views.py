@@ -9,6 +9,13 @@ from django.urls import reverse_lazy
 
 from .forms import UserRegistrationForm
 
+from .device import get_info_divace, get_info_user
+
+from colorama import Fore, Style, init
+
+
+init()
+
 
 # Create your views here.
 
@@ -18,16 +25,23 @@ class WebView(object):
 
     def login_view(request):
         """View function for login page"""
+        get_info_user(request)
+        device = get_info_divace(request)
+
+        if device == 'mobile':
+            no_account = 'Или зарегистрируйтесь!'
+            err = 'Вы не зарегистрировались или неверно ввели данные'
+        else:
+            no_account = 'Нет аккаунта? Зарегистрируйтесь!'
+            err = 'Вы не зарегистрировались или неверно ввели данные от аккаунта'
+
         name_site = 'Вход в аккаунт'
-        no_account = 'Нет аккаунта? Зарегистрируйтесь!'
 
         button_login = 'Войти в аккаунт'
         button_register = 'Зарегистрироваться'
 
         usr = 'Username'
         passw = 'Password'
-
-        err = 'Вы не зарегистрировались или неверно вели данные'
 
         if request.user.is_authenticated:
             return redirect('404')
@@ -62,8 +76,10 @@ class WebView(object):
         # DEBUG
         now = datetime.now()
         print(
-            f'# Пользователь вошел в аккаунт: [{now.strftime("%Y-%m-%d %H:%M:%S")}]\n'
-            f'Username: {username} Password: {password}'
+            f'{Fore.GREEN}Пользователь вошел в аккаунт: '
+            f'{Fore.CYAN}[{now.strftime("%Y-%m-%d %H:%M:%S")}]{Style.RESET_ALL}\n'
+            f'{Fore.YELLOW}Username and password: '
+            f'{Fore.CYAN}{username} {password}{Style.RESET_ALL}\n'
         )
 
         if user is not None:
@@ -86,8 +102,15 @@ class WebView(object):
 
     def register_view(request):
         """View function for register page"""
+        get_info_user(request)
+        divace = get_info_divace(request)
+
+        if divace == 'desktop':
+            information = 'Необходимо для скачивания программ и приложений'
+        else:
+            information = 'Необходимо для скачивания программ и приложений на сайте'
+
         name_site = 'Регистрация аккаунта'
-        information = 'Необходимо для скачивания программ и приложений на сайте'
 
         an_account = 'Есть аккаунта? Войдите!'
 
@@ -112,8 +135,10 @@ class WebView(object):
                 # DEBUG
                 now = datetime.now()
                 print(
-                    f'# Пользователь зарегистрировался: [{now.strftime("%Y-%m-%d %H:%M:%S")}]\n'
-                    f'Username: {user} Password: {request.POST["password1"]}'
+                    f'{Fore.GREEN}Пользователь зарегистрировался: '
+                    f'{Fore.CYAN}[{now.strftime("%Y-%m-%d %H:%M:%S")}]{Style.RESET_ALL}\n'
+                    f'{Fore.YELLOW}Username and password: '
+                    f'{Fore.CYAN}{user} {request.POST["password1"]}{Style.RESET_ALL}\n'
                 )
 
                 return redirect(reverse('index-windows'))
@@ -141,7 +166,10 @@ class WebView(object):
 
         # DEBUG
         now = datetime.now()
-        print(f'# Пользователь вышел из аккаунта: [{now.strftime("%Y-%m-%d %H:%M:%S")}] ')
+        print(
+            f'{Fore.GREEN}Пользователь вышел из аккаунта: '
+            f'{Fore.CYAN}[{now.strftime("%Y-%m-%d %H:%M:%S")}]{Style.RESET_ALL}\n'
+        )
 
         return redirect(
             reverse('welcome')
