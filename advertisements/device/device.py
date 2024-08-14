@@ -53,12 +53,12 @@ def get_info_user(request):
     print(f'{Fore.YELLOW}Операционная система: {Fore.CYAN}{user_agent_info.os}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}User-Agent строка: {Fore.CYAN}{user_agent}{Style.RESET_ALL}\n')
 
-    if hardware_info:
-        print(f'{Fore.YELLOW}Информация о железе:{Style.RESET_ALL}')
-        for key, value in hardware_info.items():
-            print(f'{Fore.YELLOW}{key}: {Fore.CYAN}{value}{Style.RESET_ALL}')
-
-    print('\n')
+    # if hardware_info:
+    #     print(f'{Fore.YELLOW}Информация о железе:{Style.RESET_ALL}')
+    #     for key, value in hardware_info.items():
+    #         print(f'{Fore.YELLOW}{key}: {Fore.CYAN}{value}{Style.RESET_ALL}')
+    #
+    # print('\n')
 
 
 def get_info_divace(request) -> str:
