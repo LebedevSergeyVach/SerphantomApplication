@@ -168,38 +168,38 @@ USE_TZ = True
 
 # STATIC
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATIC_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static/')
 ]
 
 STATIC_DIRS_ROOT = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static/')
 ]
 
 # MEDIA
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 MEDIA_DIRS = [
-    os.path.join(BASE_DIR, 'media')
+    os.path.join(BASE_DIR, 'media/')
 ]
 
 MEDIA_DIRS_ROOT = [
-    os.path.join(BASE_DIR, 'media')
+    os.path.join(BASE_DIR, 'media/')
 ]
 
 # STATICFILES
-STATICFILES_URL = 'staticfiles/'
-STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_URL = '/staticfiles/'
+STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'staticfiles/'),
 ]
 
 STATICFILES_DIRS_ROOT = [
-    os.path.join(BASE_DIR, 'staticfiles')
+    os.path.join(BASE_DIR, 'staticfiles/')
 ]
 
 # Включаем обслуживание медиа-файлов
