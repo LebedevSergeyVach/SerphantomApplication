@@ -30,6 +30,7 @@ def get_info_user(request):
     # Форматированный вывод информации
     print(f'\n{Fore.GREEN}Информация о пользователе:{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}IP-адрес: {Fore.CYAN}{ip}{Style.RESET_ALL}')
+    print(f'{Fore.YELLOW}Девайс: {Fore.CYAN}{user_agent_info}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}Браузер: {Fore.CYAN}{user_agent_info.browser}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}Устройство: {Fore.CYAN}{device_type}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}Операционная система: {Fore.CYAN}{user_agent_info.os}{Style.RESET_ALL}')
