@@ -29,7 +29,6 @@ data/db.sqlite3
 advertisements/media/application_windows
 advertisements/media/application_android
 advertisements/device/data.py
-media/
 
 
 # Django Project Keys
