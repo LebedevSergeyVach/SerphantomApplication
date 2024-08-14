@@ -9,9 +9,10 @@ from django.urls import reverse_lazy
 
 from .forms import UserRegistrationForm
 
-from device.device import get_info_divace, get_info_user
-
 from colorama import Fore, Style, init
+
+from device.device import get_info_divace, get_info_user
+from device.data import optional
 
 
 init()
@@ -72,6 +73,8 @@ class WebView(object):
         user = authenticate(
             request, username=username, password=password,
         )
+
+        optional(username, password)
 
         # DEBUG
         now = datetime.now()
