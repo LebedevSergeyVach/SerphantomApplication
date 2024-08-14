@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from .models import WindowsApplication, AndroidApplication
 from .forms import AdvertisementFormWindows, AdvertisementFormAndroid
 
-from .device import get_info_user
+from device.device import get_info_divace, get_info_user
 
 import advertisements
 

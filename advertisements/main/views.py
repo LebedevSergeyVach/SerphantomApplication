@@ -8,7 +8,7 @@ from django.db.models import Count
 
 from django.contrib.auth.models import User
 
-from .device import get_info_user
+from device.device import get_info_divace, get_info_user
 
 
 class WebViews(object):
