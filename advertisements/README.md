@@ -57,6 +57,9 @@ sudo docker container prune
 ```commandline
 sudo docker rm $(docker ps -a -q)
 ```
+```commandline
+sudo docker system prune -a
+```
 
 * [Docker clean casssh](https://dev.to/ajeetraina/how-to-clear-docker-cache-2nnp)
 

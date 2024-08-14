@@ -44,7 +44,7 @@ elif [[ "$1" == "-a" || "$1" == "--admin" ]]; then
 # Проверяем, передан ли флаг -c или --cash
 elif [[ "$1" == "-c" || "$1" == "--cash" ]]; then
   echo "The docker cache is being cleared..."
-  sudo docker container prune && sudo docker builder prune && sudo docker image prune -a -f
+  yes y | sudo docker container prune && yes y | sudo docker builder prune && sudo docker image prune -a -f
 
 # Если флаг не передан, выводим сообщение об ошибке
 else
