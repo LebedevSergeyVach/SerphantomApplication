@@ -19,7 +19,7 @@ WORKDIR /app
 COPY . .
 
 RUN curl -sSL https://install.python-poetry.org/ | python3 - && \
-    poetry install --no-interaction --no-cache --no-use-pep517 \
+    poetry install --no-interaction --no-cache \
 
 # Collect static files
 RUN poetry run python3 ./advertisements/manage.py collectstatic --noinput
