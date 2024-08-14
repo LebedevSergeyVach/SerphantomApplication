@@ -1,7 +1,5 @@
 from user_agents import parse
 from colorama import Fore, Style, init
-import psutil
-import platform
 
 
 init()
@@ -29,36 +27,13 @@ def get_info_user(request):
     else:
         device_type = 'Неизвестное устройство'
 
-    # Получение информации о железе компьютера (только для локального запуска)
-    if device_type == 'Компьютер/Ноутбук':
-        hardware_info = {
-            'platform': platform.system(),
-            'platform_release': platform.release(),
-            'platform_version': platform.version(),
-            'architecture': platform.machine(),
-            'processor': platform.processor(),
-            'cpu_cores': psutil.cpu_count(logical=False),
-            'cpu_threads': psutil.cpu_count(logical=True),
-            'memory': psutil.virtual_memory().total
-        }
-    else:
-        hardware_info = {}
-
     # Форматированный вывод информации
     print(f'\n{Fore.GREEN}Информация о пользователе:{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}IP-адрес: {Fore.CYAN}{ip}{Style.RESET_ALL}')
-    print(f'{Fore.YELLOW}Девайс: {Fore.CYAN}{user_agent_info}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}Браузер: {Fore.CYAN}{user_agent_info.browser}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}Устройство: {Fore.CYAN}{device_type}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}Операционная система: {Fore.CYAN}{user_agent_info.os}{Style.RESET_ALL}')
     print(f'{Fore.YELLOW}User-Agent строка: {Fore.CYAN}{user_agent}{Style.RESET_ALL}\n')
-
-    if hardware_info:
-        print(f'{Fore.YELLOW}Информация о железе:{Style.RESET_ALL}')
-        for key, value in hardware_info.items():
-            print(f'{Fore.YELLOW}{key}: {Fore.CYAN}{value}{Style.RESET_ALL}')
-
-    print('\n')
 
 
 def get_info_divace(request) -> str:

@@ -59,7 +59,7 @@ class WebView(object):
                 'button_register': button_register,
                 'usr': usr,
                 'passw': passw,
-                'error': '',
+                'err': '',
             }
 
             return render(
@@ -181,3 +181,4 @@ class WebView(object):
         return render(
             request, 'user/profile.html'
         )
+    
