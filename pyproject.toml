@@ -15,7 +15,6 @@ django-extensions = "3.2.3"
 colorama = "^0.4.6"
 user-agents = "^2.2.0"
 ua-parser = "^0.18.0"
-psutil = "^6.0.0"
 
 
 [build-system]

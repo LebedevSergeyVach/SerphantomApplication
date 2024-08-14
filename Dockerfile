@@ -18,8 +18,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN yes y | poetry cache clear . --all
-
 RUN curl -sSL https://install.python-poetry.org/ | python3 - && \
     poetry install --no-interaction --no-cache \
 

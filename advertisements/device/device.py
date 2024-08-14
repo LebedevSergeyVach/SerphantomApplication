@@ -1,6 +1,6 @@
 from user_agents import parse
 from colorama import Fore, Style, init
-import psutil
+# import psutil
 import platform
 
 
@@ -37,9 +37,9 @@ def get_info_user(request):
             'platform_version': platform.version(),
             'architecture': platform.machine(),
             'processor': platform.processor(),
-            'cpu_cores': psutil.cpu_count(logical=False),
-            'cpu_threads': psutil.cpu_count(logical=True),
-            'memory': psutil.virtual_memory().total
+            # 'cpu_cores': psutil.cpu_count(logical=False),
+            # 'cpu_threads': psutil.cpu_count(logical=True),
+            # 'memory': psutil.virtual_memory().total
         }
     else:
         hardware_info = {}
