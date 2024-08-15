@@ -19,7 +19,7 @@ class WebViews(object):
         get_info_user(request)
 
         name_site = 'Serphantom'
-        title = 'SERPHANROM SPACE'
+        title = 'SERPHANTOM SPACE'
         display = 'Добро пожаловать!'
         text = 'На данном сайте можете скачать интересующие Вас приложения.'
 
