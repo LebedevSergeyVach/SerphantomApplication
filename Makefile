@@ -1,33 +1,60 @@
-# DEV ?= 1
+PY = poetry run python
 
-# ifeq ($(DEV), 1)
-# 	COMPOSE_FILE = "./docker-compose.dev.yml"
-# else
-# 	COMPOSE_FILE = "./docker-compose.yml"
-# endif
+DOCKER_COMPOSE = ./docker-compose.yml
+DOCKER_COMPOSE_SERVER = sudo docker compose -f
 
-run:
-	su -c 'sudo docker compose -f "./docker-compose.yml" up'
+BUILD = build
+UP = up
 
-COMPOSE_FILE = "./docker-compose.yml"
+MANAGE = advertisements/manage.py
+RUNSERVER = runserver
+MIGRATE = migrate
+MAKEMIGRATIONS = makemigrations
+COLLECTSTATIC = collectstatic
+CREATESUPERUSER = createsuperuser
 
-init: docker-down docker-pull docker-build docker-up
+FLAGS_NO_CACHE = --force-rm --no-cache
+
+.PHONY: all
+
+all: runserver
+
+runserver: run_local_server
+migrate: local_migrate_database
+makemigrations: local_makemigrations_database
+collectstatic: local_collectstatic_static_files
+createsuperuser: local_createsuperuser_database
+
 up: docker-up
-down: docker-down
-restart: docker-down docker-up
+build: docker-build
+build-no-cache: docker-build-no-cache
+clear: docker-clear-cache
 
 
-COMPOSE_CMD = sudo docker-compose -f $(COMPOSE_FILE)
+run_local_server:
+	@$(PY) $(MANAGE) $(RUNSERVER)
 
-##################### COMMON COMMANDS
+local_migrate_database:
+	@$(PY) $(MANAGE) $(MIGRATE)
+
+local_makemigrations_database:
+	@$(PY) $(MANAGE) $(MAKEMIGRATIONS)
+
+local_collectstatic_static_files:
+	@$(PY) $(MANAGE) $(COLLECTSTATIC)
+
+local_createsuperuser_database:
+	@$(PY) $(MANAGE) $(CREATESUPERUSER)
+
+
 docker-up:
-	$(COMPOSE_CMD) up
-
-docker-pull:
-	$(COMPOSE_CMD) pull
-
-docker-down:
-	$(COMPOSE_CMD) down --remove-orphans
+	@$(DOCKER_COMPOSE_SERVER) "$(DOCKER_COMPOSE)" $(UP)
 
 docker-build:
-	$(COMPOSE_CMD) build
+	@$(DOCKER_COMPOSE_SERVER) "$(DOCKER_COMPOSE)" $(BUILD)
+
+docker-build-no-cache:
+	@$(DOCKER_COMPOSE_SERVER) "$(DOCKER_COMPOSE)" $(BUILD) $(FLAGS_NO_CACHE)
+
+docker-clear-cache:
+	@yes y | sudo docker container prune && yes y | sudo docker builder prune && sudo docker image prune -a -f
