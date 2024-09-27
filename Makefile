@@ -28,7 +28,7 @@ createsuperuser: local_createsuperuser_database
 up: docker-up
 build: docker-build
 build-no-cache: docker-build-no-cache
-clear: docker-clear-cache
+clean: docker-clear-cache
 
 help: help-makefile
 
