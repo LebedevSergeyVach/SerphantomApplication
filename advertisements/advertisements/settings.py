@@ -16,7 +16,7 @@ from pathlib import Path
 
 from .config import config
 
-from .secrets import SECRET_KEY, external_ip, internal_ip, time_zone
+from .secrets import SECRET_KEY, external_ip, internal_ip, dns_ip, time_zone
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,8 +37,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    '127.0.0.1.8000',
+    'localhost:8000',
     internal_ip,
     external_ip,
+    dns_ip,
     '*',
 ]
 
@@ -222,9 +225,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Включаем обслуживание статических файлов
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-# SSL SERTIFICATES
-
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
