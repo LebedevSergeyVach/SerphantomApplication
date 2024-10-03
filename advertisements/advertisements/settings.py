@@ -37,11 +37,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '127.0.0.1.8000',
-    'localhost:8000',
+    'localhost',
     internal_ip,
     external_ip,
     dns_ip,
+    'project.serphantom.space',
     '*',
 ]
 
@@ -225,3 +225,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Включаем обслуживание статических файлов
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+# HTTP Nginx configuration for server PORT 80
+
+# Отключение редиректа на HTTPS
+SECURE_SSL_REDIRECT = False
+
+# Отключение использования HTTPS для куки
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://project.serphantom.space',
+    'https://project.serphantom.space',
+]
