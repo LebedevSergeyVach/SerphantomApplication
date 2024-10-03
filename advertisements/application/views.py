@@ -147,7 +147,6 @@ class WebViews(object):
         """ Returns the list of android application """
         get_info_user(request)
 
-        """ Returns the list of android application """
         name = request.GET.get('query')
 
         description = 'Приложения для Android'
