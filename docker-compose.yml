@@ -6,10 +6,14 @@ services:
     env_file:
       - ./.env
     build:
-    #  context: ./advertisements
+      #  context: ./advertisements
       dockerfile: Dockerfile
     ports:
-      - '443:443'
+      # HTTPS Docker framework Django PROT 443
+      # - '443:443'
+
+      # HTTP Nginx configuration for server PORT 80
+      - '80:80'
     environment:
       - DEBUG=False
 
