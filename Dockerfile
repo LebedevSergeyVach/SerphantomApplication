@@ -24,6 +24,14 @@ RUN curl -sSL https://install.python-poetry.org/ | python3 - && \
 # Collect static files
 RUN poetry run python3 ./advertisements/manage.py collectstatic --noinput
 
-EXPOSE 443
+# HTTPS Docker framework Django PROT 443 and SSL CERTIFICATES
 
-ENTRYPOINT ["poetry", "run", "python3", "./advertisements/manage.py", "runserver_plus", "0.0.0.0:443", "--cert-file", "./certificates/fullchain.crt"]
+#EXPOSE 443
+#
+#ENTRYPOINT ["poetry", "run", "python3", "./advertisements/manage.py", "runserver_plus", "0.0.0.0:443", "--cert-file", "./certificates/fullchain.crt"]
+
+# HTTP Nginx configuration for server PORT 80
+
+EXPOSE 80
+
+ENTRYPOINT ["poetry", "run", "python3", "./advertisements/manage.py", "runserver_plus", "0.0.0.0:80"]
