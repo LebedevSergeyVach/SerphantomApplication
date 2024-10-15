@@ -10,38 +10,38 @@
 {% block content %}
 
     <div style="margin: 50px;"></div>
-        <div class="container overflow-hidden text-center">
-            <div class="d-grid gap-3 mx-auto">
-                  <div class="display-4">
-                    <span class="badge bg-primary">{{ name_site }}</span>
-                  </div>
+    <div class="container overflow-hidden text-center">
+        <div class="d-grid gap-3 mx-auto">
+            <div class="display-4">
+                <span class="badge bg-primary">{{ name_site }}</span>
             </div>
         </div>
+    </div>
     <div style="margin: 30px;"></div>
 
     <div style="margin: 10px;"></div>
-        <div class="container overflow-hidden text-center">
-            <div class="d-grid gap-3 mx-auto">
-                  <div class="display-7">
-                    <span class="badge bg-primary">{{ information }}</span>
-                  </div>
+    <div class="container overflow-hidden text-center">
+        <div class="d-grid gap-3 mx-auto">
+            <div class="display-7">
+                <span class="badge bg-primary">{{ information }}</span>
             </div>
         </div>
+    </div>
     <div style="margin: 10px;"></div>
 
     {{ form.non_field.errors }}
     <form method="post">
         {% csrf_token %}
-            {% for field in form %}
-                <div class="container bg-black d-flex justify-content-center align-items-center text-light mb-3">
-                    <div class="col-md-4">
-                        <label for="form" class="text-primary col-form-label col-sm-6">{{ field.label }}</label>
-                            {{ field }}
-                        {% if field.errors %}
-                            <div class="form-label bg-warning" style="margin: 10px;">{{ field.errors }}</div>
-                        {% endif %}
-                    </div>
+        {% for field in form %}
+            <div class="container bg-black d-flex justify-content-center align-items-center text-light mb-3">
+                <div class="col-md-4">
+                    <label for="form" class="text-primary col-form-label col-sm-6">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="form-label bg-warning" style="margin: 10px;">{{ field.errors }}</div>
+                    {% endif %}
                 </div>
+            </div>
         {% endfor %}
 
         <div style="margin: 30px;"></div>
@@ -55,16 +55,17 @@
     <div style="margin: 30px;"></div>
     <div class="container overflow-hidden text-center">
         <div class="d-grid gap-3 mx-auto">
-              <div class="display-6">
+            <div class="display-6">
                 <span class="badge bg-primary">{{ an_account }}</span>
-              </div>
+            </div>
         </div>
     </div>
 
     <div style="margin: 30px;"></div>
     <div class="mb-3">
         <div class="d-flex justify-content-center">
-            <a href="{% url 'login' %}" type="submit" class="btn btn-primary btn-outline-dark text-light">{{ button_login }}</a>
+            <a href="{% url 'login' %}" type="submit"
+               class="btn btn-primary btn-outline-dark text-light">{{ button_login }}</a>
         </div>
     </div>
 

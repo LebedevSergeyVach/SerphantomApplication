@@ -12,95 +12,103 @@
 {% block active_1 %}active{% endblock %}
 
 {% block content %}
-<div class="bg-black">
-    <div style="margin: 30px;"></div>
-    <div class="container overflow-hidden text-center">
-        <div class="d-grid gap-3 mx-auto">
-              <div class="display-4">
-                <span class="badge bg-primary">{{ description }}</span>
-              </div>
-        </div>
-    </div>
-
-    {% if advertisements %}
-
-    <div class="container bg-black">
-
-      <div class="row">
-        <form class="row g-4 center" method="get">
-          <div class="col-auto w-50">
-            <input placeholder="Поиск продукции для Windows" name="query" value="{% if title %} {{ title }} {% endif %}" type="text" class="form-control bg-dark text-light btn-outline-primary">
-          </div>
-          <div class="col-auto">
-              <button type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Найти</button>
-          </div>
-        </form>
-      </div>
-
     <div class="bg-black">
-        <div class="bg-black justify-content-center align-items-center">
-          {% for adv in advertisements %}
-            <div class="card mb-2 bg-black bg-gradient p-3" style="max-width: 1200px; margin-top: 20px;">
-              <div class="row g-0">
-                <div class="col-md-5">
-                  <a href="{{ adv.get_absolute_url }}" class="nav-link">
-                    <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}" class="img-fluid rounded" alt={{ adv.name }}>
-                  </a>
+        <div style="margin: 30px;"></div>
+        <div class="container overflow-hidden text-center">
+            <div class="d-grid gap-3 mx-auto">
+                <div class="display-4">
+                    <span class="badge bg-primary">{{ description }}</span>
                 </div>
-                <div class="col-md-7">
-                  <div class="card-body">
-                    <h2 class="card-title">
-                      <strong class="badge bg-primary">{{ adv.name }} </strong>
-                    </h2>
-                        <a href="{{ adv.get_absolute_url }}" class="nav-link">
-                          <h5 class="card-text text-white">
-                            {{ adv.title }}
-                          </h5>
-                        </a>
-                        <a href="{{ adv.get_absolute_url }}" class="nav-link">
-                          <strong class="card-text text-white">
-                            {{ adv.short_description }}
-                          </strong>
-                        </a>
-                      <p></p>
-                      <div class="col-auto">
-                          <a href="{{ adv.get_absolute_url }}" type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Подробнее</a>
-                          <a href="{{ adv.file_main.url }}" download={{ adv.name }} type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Скачать</a>
-                      </div>
-                      <p class="card-text"><small class="text-muted">Размещено: {{ adv.created_at|date:'d-m-Y H:i:s' }} </small></p>
-                  </div>
-                </div>
-              </div>
             </div>
-                    <div style="margin: 50px;"></div>
-          {% endfor %}
         </div>
-    </div>
-        <div style="margin: 60px;"></div>
 
-    {% else %}
-        <div style="margin: 200px;"></div>
+        {% if advertisements %}
+
+            <div class="container bg-black">
+
+            <div class="row">
+                <form class="row g-4 center" method="get">
+                    <div class="col-auto w-50">
+                        <input placeholder="Поиск продукции для Windows" name="query"
+                               value="{% if title %} {{ title }} {% endif %}" type="text"
+                               class="form-control bg-dark text-light btn-outline-primary">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3 btn-outline-dark text-light">Найти</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="bg-black">
+                <div class="bg-black justify-content-center align-items-center">
+                    {% for adv in advertisements %}
+                        <div class="card mb-2 bg-black bg-gradient p-3" style="max-width: 1200px; margin-top: 20px;">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <a href="{{ adv.get_absolute_url }}" class="nav-link">
+                                        <img src="{% if adv.image_application_main %} {{ adv.image_application_main.url }} {% else %} {% static 'img/404/404-not-found.jpg' %} {% endif %}"
+                                             class="img-fluid rounded" alt={{ adv.name }}>
+                                    </a>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body">
+                                        <h2 class="card-title">
+                                            <strong class="badge bg-primary">{{ adv.name }} </strong>
+                                        </h2>
+                                        <a href="{{ adv.get_absolute_url }}" class="nav-link">
+                                            <h5 class="card-text text-white">
+                                                {{ adv.title }}
+                                            </h5>
+                                        </a>
+                                        <a href="{{ adv.get_absolute_url }}" class="nav-link">
+                                            <strong class="card-text text-white">
+                                                {{ adv.short_description }}
+                                            </strong>
+                                        </a>
+                                        <p></p>
+                                        <div class="col-auto">
+                                            <a href="{{ adv.get_absolute_url }}" type="submit"
+                                               class="btn btn-primary mb-3 btn-outline-dark text-light">Подробнее</a>
+                                            <a href="{{ adv.file_main.url }}" download={{ adv.name }} type="submit"
+                                               class="btn btn-primary mb-3 btn-outline-dark text-light">Скачать</a>
+                                        </div>
+                                        <p class="card-text"><small
+                                                class="text-muted">Размещено: {{ adv.created_at|date:'d-m-Y H:i:s' }} </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin: 50px;"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div style="margin: 60px;"></div>
+
+        {% else %}
+            <div style="margin: 200px;"></div>
             <div class="d-flex align-items-center justify-content-center">
-            <div class="text-center">
-                <h1 class="display-1 fw-bold text-primary">Opps!</h1>
-                <p class="fs-2 text-primary"> <span>На данный момент нет программ для Windows!</span></p>
-                  <p class="lead text-primary">
-                    Посмотрите приложения для Android или перейдите на главную страницу.
-                  </p>
+                <div class="text-center">
+                    <h1 class="display-1 fw-bold text-primary">Opps!</h1>
+                    <p class="fs-2 text-primary"><span>На данный момент нет программ для Windows!</span></p>
+                    <p class="lead text-primary">
+                        Посмотрите приложения для Android или перейдите на главную страницу.
+                    </p>
                     <a href="{% url 'index-android' %}" class="btn btn-primary btn-outline-dark text-light">Android</a>
                     <a href="{% url 'welcome' %}" class="btn btn-primary btn-outline-dark text-light">Go Home</a>
                     {% if user.is_superuser %}
                         <a href="/admin" class="btn btn-primary btn-outline-dark text-light">Admin</a>
-                        <a href="{% url 'add-windows-post' %}" class="btn btn-primary btn-outline-dark text-light">Add Windows</a>
+                        <a href="{% url 'add-windows-post' %}" class="btn btn-primary btn-outline-dark text-light">Add
+                            Windows</a>
                     {% endif %}
                 </div>
             </div>
-        <div style="margin: 200px;"></div>
-    {% endif %}
+            <div style="margin: 200px;"></div>
+        {% endif %}
 
+        </div>
     </div>
-</div>
 
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
 {% endblock %}

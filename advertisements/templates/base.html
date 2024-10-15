@@ -2,21 +2,21 @@
 
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="{% static 'img/main/favicon.ico' %}" type="image/x-icon">
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/main/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
-{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"#}
-{#        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"#}
-{#        crossorigin="anonymous">#}
-{##}
-{#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"#}
-{#        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"#}
-{#        crossorigin="anonymous"></script>#}
+    {#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"#}
+    {#        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"#}
+    {#        crossorigin="anonymous">#}
+    {##}
+    {#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"#}
+    {#        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"#}
+    {#        crossorigin="anonymous"></script>#}
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
@@ -26,78 +26,99 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
 
-  <title>{% block title %} Index {% endblock %}</title>
+    <title>{% block title %} Index {% endblock %}</title>
 </head>
 
 <body class="bg-black">
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const elements = document.querySelectorAll('.card-text');
+        elements.forEach(function (element) {
+            const text = element.innerHTML;
+            const replacedText = text.replace(/(https?:\/\/[^\s]+\b)(?=\.)?/g, function (match) {
+                return `<a href="${match}" target="_blank">${match}</a>`;
+            });
+            element.innerHTML = replacedText;
+        });
+    });
+</script>
 
 <ul class="nav nav-pills sticky-top bg-black nav-fill">
 
-<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-    ☰
-</a>
-<div class="offcanvas offcanvas-start bg-primary text-light" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h2 class="offcanvas-title" id="offcanvasExampleLabel">
-        Serphantom Space Application
-    </h2>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-  </div>
-  <div class="offcanvas-body bg-black bg-gradient">
-    <div>
-      <p><strong>При не работы изображений на сайте, отключите блокировщик рекламы.</strong></p>
-      Всю информацию о проекте Вы можете найти, нажав на 'Информация о сайте' снизу ⮷⮷⮷.
-    </div>
-    <div class="row mb-auto text-light">
-        <div class="row mb-1">
-           <div class="">
-                <p></p>
-                    <a href="{% url 'welcome' %}" type="submit" class="btn btn-primary btn-outline-dark text-light flex-fill">Перейти на главную</a>
-                        <p></p>
-                    <a href="{% url 'logout' %}" type="submit" class="btn btn-primary btn-outline-dark text-light flex-fill">Выйти из аккаунта</a>
-                <p></p>
-                {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
-                    <a class="nav-link" aria-current="page" href="/admin">
-                        <button type="submit" class="btn btn-primary btn-outline-dark text-light">ADMIN</button>
-                    </a>
-                    <a class="nav-link" aria-current="page" href="{% url 'add-windows-post' %}">
-                        <button type="submit" class="btn btn-primary btn-outline-dark text-light">Add Windows</button>
-                    </a>
-                    <a class="nav-link" aria-current="page" href="{% url 'add-android-post' %}">
-                        <button type="submit" class="btn btn-primary btn-outline-dark text-light">Add Android</button>
-                    </a>
-                {% else %}
-                {% endif %}
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+       aria-controls="offcanvasExample">
+        ☰
+    </a>
+    <div class="offcanvas offcanvas-start bg-primary text-light" tabindex="-1" id="offcanvasExample"
+         aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title" id="offcanvasExampleLabel">
+                Serphantom Space Application
+            </h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body bg-black bg-gradient">
+            <div>
+                <p><strong>При не работы изображений на сайте, отключите блокировщик рекламы.</strong></p>
+                Всю информацию о проекте Вы можете найти, нажав на 'Информация о сайте' снизу ⮷⮷⮷.
             </div>
+            <div class="row mb-auto text-light">
+                <div class="row mb-1">
+                    <div class="">
+                        <p></p>
+                        <a href="{% url 'welcome' %}" type="submit"
+                           class="btn btn-primary btn-outline-dark text-light flex-fill">Перейти на главную</a>
+                        <p></p>
+                        <a href="{% url 'logout' %}" type="submit"
+                           class="btn btn-primary btn-outline-dark text-light flex-fill">Выйти из аккаунта</a>
+                        <p></p>
+                        {% if user.is_superuser or user.username == "mirrostate" or user.username == "Hefranterm" %}
+                            <a class="nav-link" aria-current="page" href="/admin">
+                                <button type="submit" class="btn btn-primary btn-outline-dark text-light">ADMIN</button>
+                            </a>
+                            <a class="nav-link" aria-current="page" href="{% url 'add-windows-post' %}">
+                                <button type="submit" class="btn btn-primary btn-outline-dark text-light">Add Windows
+                                </button>
+                            </a>
+                            <a class="nav-link" aria-current="page" href="{% url 'add-android-post' %}">
+                                <button type="submit" class="btn btn-primary btn-outline-dark text-light">Add Android
+                                </button>
+                            </a>
+                        {% else %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            <div class="dropdown mt-1">
+                <button class="btn btn-primary btn-outline-dark text-light dropdown-toggle" aria-current="page"
+                        type="button" data-bs-toggle="dropdown">
+                    Все ссылки на проект
+                </button>
+                <ul class="dropdown-menu bg-dark text-light btn-outline-dark dropdown-menu-dark"
+                    aria-current="dropdownId">
+                    <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach">GitHub</a>
+                    <a class="dropdown-item text-light btn-outline-primary"
+                       href="https://github.com/LebedevSergeyVach/SerphantomApplication">Repositories</a>
+                </ul>
+            </div>
+            <p></p><span>Ссылки на проект, а также на разработчика - Github.</span>
         </div>
     </div>
-      <p></p>
-    <div class="dropdown mt-1">
-      <button class="btn btn-primary btn-outline-dark text-light dropdown-toggle" aria-current="page" type="button" data-bs-toggle="dropdown">
-        Все ссылки на проект
-      </button>
-      <ul class="dropdown-menu bg-dark text-light btn-outline-dark dropdown-menu-dark" aria-current="dropdownId">
-        <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach">GitHub</a>
-        <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach/SerphantomApplication">Repositories</a>
-      </ul>
-    </div>
-      <p></p><span>Ссылки на проект, а также на разработчика - Github.</span>
-  </div>
-</div>
 
-  <li class="bg-black text-black">
-      <span>.</span>
-  </li>
-  <li class="nav-item bg-black">
-    <a class="nav-link {% block active_1 %}{% endblock %}" aria-current="page" href="{% url 'index-windows' %}">
-      <span style="font-weight: bold;">Windows</span>
-    </a>
-  </li>
-  <li class="nav-item bg-black">
-    <a class="nav-link {% block active_2 %}{% endblock %}" href="{% url 'index-android' %}">
-        <span style="font-weight: bold;">Android</span>
-    </a>
-  </li>
+    <li class="bg-black text-black">
+        <span>.</span>
+    </li>
+    <li class="nav-item bg-black">
+        <a class="nav-link {% block active_1 %}{% endblock %}" aria-current="page" href="{% url 'index-windows' %}">
+            <span style="font-weight: bold;">Windows</span>
+        </a>
+    </li>
+    <li class="nav-item bg-black">
+        <a class="nav-link {% block active_2 %}{% endblock %}" href="{% url 'index-android' %}">
+            <span style="font-weight: bold;">Android</span>
+        </a>
+    </li>
 </ul>
 
 {% block content %}
@@ -117,128 +138,162 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <strong class="text-primary fw-bold">Пользователь: </strong> <strong class="text-white">{{ user.username }}</strong>
+                        <strong class="text-primary fw-bold">Пользователь: </strong> <strong
+                            class="text-white">{{ user.username }}</strong>
                         <p></p>
-                        <strong class="text-primary fw-bold">Почта: </strong> <strong class="text-white">{{ user.email }}</strong>
+                        <strong class="text-primary fw-bold">Почта: </strong> <strong
+                            class="text-white">{{ user.email }}</strong>
                         <p></p>
-                        <span class="text-primary fw-bold">Дата регистрации: </span> <span class="text-white">{{ user.date_joined|date:'d-m-Y H:i:s' }}</span>
+                        <span class="text-primary fw-bold">Дата регистрации: </span> <span
+                            class="text-white">{{ user.date_joined|date:'d-m-Y H:i:s' }}</span>
                         <p></p>
-                        <span class="text-primary fw-bold">Последний вход: </span><span class="text-white">{{ user.last_login|date:'d-m-Y H:i:s' }}</span>
+                        <span class="text-primary fw-bold">Последний вход: </span><span
+                            class="text-white">{{ user.last_login|date:'d-m-Y H:i:s' }}</span>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-outline-dark text-light" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-primary btn-outline-dark text-light"
+                                data-bs-dismiss="modal">Закрыть
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Информация о сайте
-    </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content bg-black bg-gradient text-light">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Здесь есть вся информация о данном сайте😉</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-          </div>
-          <div class="modal-body">
-              <p>Приветствую, дорогой пользователь! Всю информацию ты сможешь найти внизу ⮯</p>
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item bg-primary text-light">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button bg-dark text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          <strong>О сайте ⮷</strong>
-                      </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                          <strong>
-                            <p>Краткая информация о сайте.</p>
-                          </strong>
-                          <p>На данном сайте размещаются программы и приложения для Windows и Android.
-                              Любой пользователь сайта может скачать необходимые ему программы или приложения.</p>
-                          <p>Данный сайт написан на чистом энтузиазме и не имеет особого смысла.</p>
-                          <p>Если вам понравился данный сайт, то можете написать об этом мне в telegram ;)</p>
-                            <strong>Спасибо, что пользуетесь моим сайтом! ❤️❤️❤️</strong>
-                          <p></p>
-                            <strong>При не работы изображений на сайте, отключите блокировщик рекламы.</strong>
-                          <p></p>
-                            <strong>Просим прощения за возможные сносы базы данных !!! 🥲🥲🥲</strong>
-                      </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Информация о сайте
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-black bg-gradient text-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Здесь есть вся информация о данном сайте😉</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                     </div>
-                  </div>
-                  <div class="accordion-item bg-primary text-light">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed bg-dark text-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          <strong>Разработчики и проект ⮷</strong>
-                      </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <strong>
-                          <p>Разработчик LebedevSergeyVach. Проект Serphantom Space Application.</p>
-                        </strong>
-                          <p>Проект написан на фреймворке Django. Бэкенд написан на Python. Фронтенд разработан с использованием фреймворка Bootstrap. Docker контейнер веб-сайта развертывается на собственном домашнем сервере на Debian.</p>
-                          <p>Все ссылки на проект (GitHub), а также на разработчика (Telegram и Github) вы сможете увидеть внизу сайта, нажав на '≡' и 'References to the project'.</p>
-                          <p>Сайт полностью имеет открытый исходный код для любого желающего на Github. Буду рад если посмотри и нажмете на 'Star'! Opensource ;)</p>
-                          <p>Стабильная версия сайта 1.6.2</p>
-                      </div>
+                    <div class="modal-body">
+                        <p>Приветствую, дорогой пользователь! Всю информацию ты сможешь найти внизу ⮯</p>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item bg-primary text-light">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button bg-dark text-primary" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                        <strong>О сайте ⮷</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>
+                                            <p>Краткая информация о сайте.</p>
+                                        </strong>
+                                        <p>На данном сайте размещаются программы и приложения для Windows и Android.
+                                            Любой пользователь сайта может скачать необходимые ему программы или
+                                            приложения.</p>
+                                        <p>Данный сайт написан на чистом энтузиазме и не имеет особого смысла.</p>
+                                        <p>Если вам понравился данный сайт, то можете написать об этом мне в telegram
+                                            ;)</p>
+                                        <strong>Спасибо, что пользуетесь моим сайтом! ❤️❤️❤️</strong>
+                                        <p></p>
+                                        <strong>При не работы изображений на сайте, отключите блокировщик
+                                            рекламы.</strong>
+                                        <p></p>
+                                        <strong>Просим прощения за возможные сносы базы данных !!! 🥲🥲🥲</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item bg-primary text-light">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-dark text-primary " type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                        <strong>Разработчики и проект ⮷</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>
+                                            <p>Разработчик LebedevSergeyVach. Проект Serphantom Space Application.</p>
+                                        </strong>
+                                        <p>Проект написан на фреймворке Django. Бэкенд написан на Python. Фронтенд
+                                            разработан с использованием фреймворка Bootstrap. Docker контейнер веб-сайта
+                                            развертывается на собственном домашнем сервере на Debian.</p>
+                                        <p>Все ссылки на проект (GitHub), а также на разработчика (Telegram и Github) вы
+                                            сможете увидеть внизу сайта, нажав на '≡' и 'References to the project'.</p>
+                                        <p>Сайт полностью имеет открытый исходный код для любого желающего на Github.
+                                            Буду рад если посмотри и нажмете на 'Star'! Opensource ;)</p>
+                                        <p>Стабильная версия сайта 1.6.2</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item bg-primary text-light">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-dark text-primary " type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                        <strong>Модерация ⮷</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>
+                                            <p>Правила о модерации размещения объявлений.</p>
+                                        </strong>
+                                        <p>1. Не размещайте порнографию, нецензурные выражения, незаконную и нарушающую
+                                            права иформацию, оскорбляющую других пользователей.</p>
+                                        <p>2. Относитесь к сайту и его пользователям с уважением.</p>
+                                        <p>3. На сайте каждый пользователь обладает свободой слова и в праве рамешать
+                                            любую информацию, не нарушающую вышеперечисленные требования.</p>
+                                        <p>4. Реклама и новостные материалы могут быть размещены без официального
+                                            подтверждения.</p>
+                                        <p>5. За каждое размещённое объявление вы несёте ответсвенность самостоятельно.
+                                            Необходимо размещать актуальную и действительную информацию. Размещение
+                                            пользовательского контента допускается исключительно в информационных
+                                            целях.</p>
+                                        <p>6. Регистрируясь на сайте и при каждом случае входа на сайт, вы гарантируете,
+                                            что обладаете всеми правомочиями, необходимыми для заключения и исполнения
+                                            требований и правил.</p>
+                                        <p>Все данные ограничения введены из-за человека, отвечающего за хостинг! :(</p>
+                                        <p>Разработчик придерживается свободы слова и будет отстаивать ваши объявления у
+                                            хостера! :)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="accordion-item bg-primary text-light">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed bg-dark text-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          <strong>Модерация ⮷</strong>
-                      </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <strong>
-                          <p>Правила о модерации размещения объявлений.</p>
-                        </strong>
-                          <p>1. Не размещайте порнографию, нецензурные выражения, незаконную и нарушающую права иформацию, оскорбляющую других пользователей.</p>
-                          <p>2. Относитесь к сайту и его пользователям с уважением.</p>
-                          <p>3. На сайте каждый пользователь обладает свободой слова и в праве рамешать любую информацию, не нарушающую вышеперечисленные требования.</p>
-                          <p>4. Реклама и новостные материалы могут быть размещены без официального подтверждения.</p>
-                          <p>5. За каждое размещённое объявление вы несёте ответсвенность самостоятельно. Необходимо размещать актуальную и действительную информацию. Размещение пользовательского контента допускается исключительно в информационных целях.</p>
-                          <p>6. Регистрируясь на сайте и при каждом случае входа на сайт, вы гарантируете, что обладаете всеми правомочиями, необходимыми для заключения и исполнения требований и правил.</p>
-                          <p>Все данные ограничения введены из-за человека, отвечающего за хостинг! :(</p>
-                          <p>Разработчик придерживается свободы слова и будет отстаивать ваши объявления у хостера! :)</p>
-                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-outline-dark text-light"
+                                data-bs-dismiss="modal">Закрыть
+                        </button>
                     </div>
-                  </div>
                 </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-outline-dark text-light" data-bs-dismiss="modal">Закрыть</button>
-          </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-      data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-      aria-label="Toggle navigation"></button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-{#        <li class="nav-item dropdown">#}
-{#          <a class="nav-link dropdown-toggle text-light" href="" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"#}
-{#            aria-expanded="false">Ссылки</a>#}
-{#          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownId">#}
-{#            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach">GitHub</a>#}
-{#            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach/SerphantomApplication">Repositories</a>#}
-{#          </div>#}
-{#        </li>#}
-      </ul>
-      <form class="d-flex my-2 my-lg-0" method="get">
-        <input class="form-control me-sm-2 bg-dark text-light btn-outline-primary" type="text" placeholder="Поиск" name="query"  value="{% if title %} {{ title }} {% endif %}">
-        <button class="btn btn-outline-dark my-2 my-sm-0 text-light" type="submit">Поиск</button>
-      </form>
-    </div>
-  </nav>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                {#        <li class="nav-item dropdown">#}
+                {#          <a class="nav-link dropdown-toggle text-light" href="" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"#}
+                {#            aria-expanded="false">Ссылки</a>#}
+                {#          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownId">#}
+                {#            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach">GitHub</a>#}
+                {#            <a class="dropdown-item text-light btn-outline-primary" href="https://github.com/LebedevSergeyVach/SerphantomApplication">Repositories</a>#}
+                {#          </div>#}
+                {#        </li>#}
+            </ul>
+            <form class="d-flex my-2 my-lg-0" method="get">
+                <input class="form-control me-sm-2 bg-dark text-light btn-outline-primary" type="text"
+                       placeholder="Поиск" name="query" value="{% if title %} {{ title }} {% endif %}">
+                <button class="btn btn-outline-dark my-2 my-sm-0 text-light" type="submit">Поиск</button>
+            </form>
+        </div>
+    </nav>
 </footer>
 
 {% block scripts %}
-  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 {% endblock %}
 
 </body>
